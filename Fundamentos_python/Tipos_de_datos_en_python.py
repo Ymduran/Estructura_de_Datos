@@ -9,7 +9,7 @@ print(" * Usos de los tipos básico de datos en Python.           * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * ")
 print(" ")
 print(" ")
-
+print(" ")
 
 
 # Notas:
