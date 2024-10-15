@@ -9,8 +9,8 @@ print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
-numero_entero1 = input("ingresa número entero 1: ")
-numero_entero2 = input("ingresa número entero 2: ")
+numero_entero1 = input("ingresa número entero 1:  ")
+numero_entero2 = input("ingresa número entero 2:  ")
 
 print("ud ingresó los múmeros ", numero_entero1 , " y ",numero_entero2)
 
@@ -31,7 +31,7 @@ print("resultado de //: ", numero1 // numero2) #resultado de división en entero
 
 print("resultado de %: ", numero1 % numero2) # Módulo de la divisón
 
-print("resultado de **: ", numero1 ** numero2) #eleva al primero a la potencia del segundo número
+print("resultado de **: ", numero1 ** numero2) #eleva al primero a la potencia del segundo númer0
 
 
 
