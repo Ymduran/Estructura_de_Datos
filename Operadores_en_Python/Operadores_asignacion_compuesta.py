@@ -15,3 +15,22 @@ numero1 = int(numero_entero1)
 numero2 = int(numero_entero2)
 print(f"ud ingresó los múmeros {numero1} y {numero2}")
 
+numero1 += 3
+print(f"numero1 += 3: {numero1}")
+numero2 -= 5
+print(f"numero2 -= 5: {numero2}")
+numero1 /= 4
+print(f"numero1 /= 4: {numero1}")
+
+numero_entero1 , numero_entero2= input("ingresa número entero 1:  ") , input("ingresa número entero 2:  ")
+#conversión a enteros
+numero1 = int(numero_entero1)
+numero2 = int(numero_entero2)
+print(f"ud ingresó los múmeros {numero1} y {numero2}")
+
+numero1 += numero2
+numero1 *= numero1
+numero1 -= numero2
+numero1 += 3
+numero1 /= 2
+print(f"resultado final {numero1}")
