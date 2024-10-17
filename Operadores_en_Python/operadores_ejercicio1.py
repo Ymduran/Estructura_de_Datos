@@ -1,0 +1,16 @@
+print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+print(" * Durán Breceda Lourdes Jamileth                                   * ")
+print(" *                                                                  * ")
+print(" * Fecha: 17 octubre del 2024                                       * ")
+print(" *                                                                  * ")
+print(" * Descripción:                                                     * ")
+print(" * Operadores Operadores lódicos  ejercicio                         * ")
+print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+print(" ")
+print(" ")
+
+compras=input("ingrese cantidad de sus compras ")
+compras=int(compras)
+meses_sin_intereses=input("las compras con a meses sin intereses? si/no: ")
+meses_sin_intereses=meses_sin_intereses.lower()== "si"
+print(f"aplica bonificacion? {(compras>5000) and meses_sin_intereses}")
