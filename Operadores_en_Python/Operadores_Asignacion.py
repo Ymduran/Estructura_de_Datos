@@ -12,7 +12,7 @@ print(" ")
 #ASIGNACIÓN MÚLTIPLE
 variable1 , variable2 = 5 , 10  #se pueden asignar dos o más valores al mismo tiempo
 variable3 , variable4 = 9.14 , "chuy" #se pueden asignar dos o más valores de diferente tipo de dato
-
+#para imprimir una variables dentro del letrero se pone f antes de las comillas y la variable se pone  entre llaves
 print(f" variable 1: {variable1}")
 print(f" variable 2: {variable2}")
 print(f" variable 3: {variable3}")
@@ -36,9 +36,9 @@ variable10 , variable11 = "Alberto" , "Beto"
 print(f" variable 10: {variable10}")
 print(f" variable 11: {variable11}")
 print("intercambiando...")
-variable11 , variable10 = variable10 , variable11 #Para hacer intercambio de variables sin tener que guardarlo en una existencia
+variable11 , variable10 = variable10 , variable11 #Para hacer intercambio de variables sin tener que guardarlo en un auxiliar
 print(f" variable 10: {variable10}")
 print(f" variable 11: {variable11}")
 
-nombre , apellido = input("ingresa nombre: ") , input("ingresa tu apellido: ") #Para leer datos por teclado al mismo tiempo
+nombre , apellido = input("ingresa nombre: ") , input("ingresa tu apellido: ") #Para leer datos por teclado al mismo tiempo, así se pueden leer varias respuestas en la misma línea de código
 print(nombre ,  apellido)
