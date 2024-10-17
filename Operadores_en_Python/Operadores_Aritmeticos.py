@@ -13,7 +13,7 @@ numero_entero1 = input("ingresa número entero 1:  ")
 numero_entero2 = input("ingresa número entero 2:  ")
 
 print("ud ingresó los múmeros ", numero_entero1 , " y ",numero_entero2)
-
+#Después de leer un número por teclado es necesario convertirlo a entero (en este caso) para poder realizar operaciones aritméticas según el tipo de dato que corresponda
 numero1 = int(numero_entero1)
 numero2 = int(numero_entero2)
 
@@ -24,8 +24,6 @@ print("resultado de -: ", numero1 - numero2) #resta
 print("resultado de *: ", numero1 * numero2) # Multiplicación
 
 print("resultado de /: ", numero1 / numero2) #resultado de división en flotante (decimal)
-
-#print("resultado de / con dos decimales: ", numero1 / numero2 #resultado de división en flotante (decimal)
 
 print("resultado de //: ", numero1 // numero2) #resultado de división en entero
 
