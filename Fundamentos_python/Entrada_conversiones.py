@@ -22,6 +22,7 @@ es_mujer = input("¿Es mujer (Si/No)?: ")# Y la respuesta se comparará posterio
 # Por ello, utilizamos la misma variable, convertimos a  minúsculas y lo comparamos con la cadena "si".
 es_mujer = es_mujer.lower() == "si" #Se convierte a minúscula y se compara con la cadena "si"
 
+
 # Se imprimen los datos del alumno.
 # Comentar  qué es lo que realiza {promedio:.2f} probando con números diferentes.
 print()#Salto de línea
