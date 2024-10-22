@@ -1,13 +1,17 @@
-'''
-Nombre:
-Fecha:
-Descripción:
-Conversión de cadenas a int, float y boolean mediante la interacción con consola.
-'''
+print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+print(" * Durán Breceda Lourdes Jamileth                                   * ")
+print(" *                                                                  * ")
+print(" * Fecha: 10 octubre del 2024                                       * ")
+print(" *                                                                  * ")
+print(" * Descripción:                                                     *")
+print(" * Entrada conversiones                                             * ")
+print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+print(" ")
+print(" ")
 
 # Comentar sobre las funciones anidadas.
 print("****   Datos de los alumnos    *****")
-nombre = input("Ingresa el nombre: ")
+nombre = input("Ingresa el nombre: ") #
 semestre = int(input("Ingresa el no. de semestre: "))
 promedio = float(input("Ingresa el promedio: "))
 es_mujer = input("¿Es mujer (Si/No)?: ")
