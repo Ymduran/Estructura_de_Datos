@@ -14,3 +14,4 @@ if (numero % 2) == 0:
     print(f" el número {numero} es par")
 else:
     print(f" el número {numero} es impar")
+#En este ejercicio tiene que mostrar un si cuando ambas respuestas sea verdadera
