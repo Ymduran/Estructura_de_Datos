@@ -10,10 +10,13 @@ print(" ")
 print(" ")
 
 '''
-if condición:
+if condición1:
     #Código a ejecutar sí
 else: 
-    #Código si la condición no es verdadera
+    #Código si la condición1 no es verdadera
 '''
 
+'''
+Útil en un programa para decidir si una persona es mayor de edad o no
+'''
 
