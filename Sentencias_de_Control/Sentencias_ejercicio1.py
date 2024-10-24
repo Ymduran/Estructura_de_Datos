@@ -7,7 +7,7 @@ print(" * Descripción:                                                     * ")
 print(" * Sentencia ejercicio                                             * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
-print(" ")
+print("  ")
 
 '''
 Instrucciones: Escribe un programa de nombre Sentencias_ejercicio1.py que realice lo siguiente:
