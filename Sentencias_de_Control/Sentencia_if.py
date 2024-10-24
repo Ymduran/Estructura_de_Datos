@@ -13,5 +13,5 @@ if condición:
     #Código a ejecutar si
     #La condición es verdadera
     
-En vez de llaves se usa tabulador
+En vez de llaves se usa tabulador, cuando se vuelve a la línea "principal" del código termina el código correspondiente al if 
 '''
