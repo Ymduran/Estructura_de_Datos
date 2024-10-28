@@ -22,9 +22,9 @@ d) Muestre el mensaje adecuado en consola.
 '''
 
 print("**Bar la Negra**")
-edad=int(input("ingrese su edad: "))
-cantidad_a_gastar=float(input("ingrese catidad disponible para gastar: "))
-if edad>=18 and cantidad_a_gastar>=250:
+edad=int(input("ingrese su edad: ")) #Se lee por teclado la edad y se convierte a entero
+cantidad_a_gastar=float(input("ingrese catidad disponible para gastar: ")) #Se lee por teclado la cantidad y se convierte a flotante
+if edad>=18 and cantidad_a_gastar>=250: #sí edad es mayor de 18(true) y cantidad a gastar es mayor o igual a 250(true) entonces ejecuta la línea siguiente
     print("¡Bienvenido a tu mejor bar!")
-else:
+else: #Sí no se cumple lo anterior se ejecuta la línea siguiente
     print("Lo sentimos, ya estamos por cerrar! :(")
