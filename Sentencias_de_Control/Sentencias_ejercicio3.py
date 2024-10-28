@@ -21,15 +21,15 @@ b) Pregunte al usuario si cuenta con la membresía (Si/No).
 c) Utilice la lógica adecuada para determinar el total a pagar.
 '''
 
-cantidad_comprada=int(input("ingrese cantidad comprada: "))
-membresia=input("¿Cuenta con membresía?: si/no: ")
-membresia=membresia.lower()=="si"
+cantidad_comprada=int(input("ingrese cantidad comprada: ")) #Se lee por teclado la cantidad comprada
+membresia=input("¿Cuenta con membresía?: si/no: ") #Se lee un si/no
+membresia=membresia.lower()=="si" #la respuesta anterior se compara con la cadena "si" para determinar un true o un false
 
-if membresia==False:
+if membresia==False: #Sí la respuesta fue no
     print(f"Se le invita a formar parte de la empresa para obtener un descuento hasta del 8%. El total a pagar es de {cantidad_comprada}")
-elif membresia==True and cantidad_comprada<=500:
+elif membresia==True and cantidad_comprada<=500: #si la respuesta fue si y la compra es menor o igual a 500
     print("Su descuento es del 5% ")
-    print(f"Total a pagar= {cantidad_comprada-(cantidad_comprada*0.05)}")
-elif membresia==True and cantidad_comprada>500:
+    print(f"Total a pagar= {cantidad_comprada-(cantidad_comprada*0.05)}") #se hace el descuento con la cantidad de la compra menos el 5%
+elif membresia==True and cantidad_comprada>500: #si las respuesta fue si y la compra fue mayor a 500
     print("Su descuento es del 8% ")
-    print(f"Total a pagar= {cantidad_comprada - (cantidad_comprada * 0.08)}")
+    print(f"Total a pagar= {cantidad_comprada - (cantidad_comprada * 0.08)}") #Se hace el descuento de la compra menos el 8%
