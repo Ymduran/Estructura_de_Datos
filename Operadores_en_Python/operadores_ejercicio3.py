@@ -11,4 +11,4 @@ print(" ")
 
 numero=input("ingresa número: ")
 numero=int(numero)
-print(f"el número está entre 10 y 15? {(numero>=10) and (numero<=10)}")
+print(f"el número está entre 10 y  15? {(numero>=10) and (numero<=10)}")
