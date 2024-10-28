@@ -26,16 +26,19 @@ f) Muestre los detalles del cliente y el día, así como el costo total.
 
 print("** tour turístico Ecoturixtlán **")
 
-nombre_persona_a_cargo = input("ingrese nombre de la persona a cargo: ")
+nombre_persona_a_cargo = input("ingrese nombre de la persona a cargo: ")#Se leen por teclado el nombre de la persona a cargo
+#Se asignan los valores fijos y se leen otros datos por teclado, los cuales se convierten al tipo de dato correspondiente
 precio_boleto_adulto, precio_boleto_niño, numero_adultos, numero_niños, dia_semana = 200, 100, int(input("ingrese cantidad de adultos: ")), int(input("ingrese cantidad de niños: ")), input("ingrese día de la semana: ")
 
-dia_semana = dia_semana.lower()
+
+dia_semana = dia_semana.lower()#Se convierte a minúsculas para posteriormente comparar con otras cadenas
 
 print(f"día de la semana {dia_semana}")
 print(f"persona encargada: {nombre_persona_a_cargo}")
 print(f"Ingresaron {numero_adultos} adultos y {numero_niños} niños")
-if dia_semana=="lunes" or dia_semana== "martes" or dia_semana== "jueves" :
+if dia_semana=="lunes" or dia_semana== "martes" or dia_semana== "jueves" : #Sí el día de la semana es igual a estas otras cadenas entonces se ejecuta la siguinte línea de código
     print(f"El costo total del tour es de: ${ ((numero_adultos * precio_boleto_adulto) + (numero_niños * precio_boleto_niño))  -  ((numero_adultos*precio_boleto_adulto)+(numero_niños*precio_boleto_niño))*0.1}, con descuento")
-else:
+                                                #costo de todos los adultos            +  costo de todos los niños             - el 10%
+else: #sí la condición anterior no se cumple, entonces no aplica el descuento
     print(f"El costo total del tour es de: ${(numero_adultos * precio_boleto_adulto) + (numero_niños * precio_boleto_niño)}, sin descuento")
-
+                                                # costo de todos los adultos            +  costo de todos los niños
