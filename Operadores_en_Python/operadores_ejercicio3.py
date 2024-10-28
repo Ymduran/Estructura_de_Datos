@@ -9,6 +9,6 @@ print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
-numero=input("ingresa número: ")
-numero=int(numero)
-print(f"el número está entre 10 y  15? {(numero>=10) and (numero<=10)}")
+numero=input("ingresa número: ") #el número se lee por teclado
+numero=int(numero) #Lo que se leyó por teclado se convierte a entero
+print(f"el número está entre 10 y  15? {(numero>=10) and (numero<=10)}") #Evalúa si el número se encuentra entre número 10 y 15 con valores booleanos y los operadores lógicos; true and true = true
