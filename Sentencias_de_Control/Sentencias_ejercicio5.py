@@ -18,17 +18,17 @@ d) Muestre el promedio (utilizando un decimal) y el mensaje: "¡Felicidades! Apr
 
 '''
 
-
+#Se leen las calificaciones por teclado y se convierten a flotantes
 parcial1,parcial2,parcial3, ordinario = float(input("Ingrese calificación del primer parcial: ")), float(input("ingrese la calificación del segundo parcial: ")), float(input("ingrese la calificación del tercer parcial: ")), float(input("ingrese la calificación del ordinario: "))
-
+#se calcula el promedio con el promero de los tres parcial = 50% + el 50% del ordinario
 promedio = (((parcial1 + parcial2 + parcial3)/3)/2) + (ordinario/2)
 
-if promedio >= 6:
+if promedio >= 6: #sí el promedio es mayor o igual a 6
     print(f"tu promedio es de: {promedio:.1f}, ¡Felicidades! Aprobaste. ")
-else:
+else: #si no el promedio es menor a 6
     print(f"tu promedio es de: {promedio:.1f}, Lo siento, no aprobaste.")
 
-
+#otro método conviertiendo primero a valor booleano
 print("Convirtiendo primero el promedio a valor booleano")
 
 promedioboole = (promedio >= 6)
