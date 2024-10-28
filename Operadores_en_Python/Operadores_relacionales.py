@@ -13,7 +13,7 @@ numero_1 , numero_2= input("ingresa número decimal 1:  ") , input("ingresa núm
 #conversión a flotantes
 numero1 = float(numero_1)  #después de leer un dato se debe convertir para realizar operaciones aritméticas con ellas
 numero2 = float(numero_2) #En este caso se convierte en un flotante o decimal porque serán los números a comparar
-print(f"ud ingresó los múmeros {numero1:.2f} y {numero2:.2f}") #nombre_variable:-2f para imprimir los primeros dos decimales
+print(f"ud ingresó los múmeros {numero1:.2f} y {numero2:.2f}") #nombre_variable:.2f para imprimir los primeros dos decimales
 
 
 #Las comparaciones se pueden realizar dentro de las llaves
