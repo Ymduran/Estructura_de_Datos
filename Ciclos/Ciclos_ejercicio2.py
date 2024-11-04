@@ -7,7 +7,6 @@ print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
 print(" * ciclos ejercicio 2                                               * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
-
 print(" ")
 print(" ")
 
