@@ -7,6 +7,7 @@ print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
 print(" * ciclo while (mientras) ejercicio  1                               * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+
 print(" ")
 
 
