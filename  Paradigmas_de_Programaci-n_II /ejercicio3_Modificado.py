@@ -69,5 +69,5 @@ while flag == 0:
     elif opcion == "0":
         print("FIN DEL JUEGO")
         print("PUNTOS TOTALES")
-        print(f"Victorias jugador = {puntos_usuario} || Empates = {empate} || Victorias CPU = {puntos_cpu} ")
+        print(f"Victorias  jugador = {puntos_usuario} || Empates = {empate} || Victorias CPU = {puntos_cpu} ")
         flag=1
