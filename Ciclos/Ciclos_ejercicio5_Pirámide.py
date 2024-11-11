@@ -52,5 +52,7 @@ for i in range(1, numero_filas+1):
     contador_asterisco -= 1
     count+=1
 
+    
+
 
 
