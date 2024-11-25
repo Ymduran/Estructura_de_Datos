@@ -7,14 +7,11 @@ print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
 print(" * ciclo while (mientras) ejercicio  1                               * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
-
 print(" ")
-
-
 '''
 while condición:
 --> #Código a hacer mientras
-#tabulacción 
+    #tabulacción 
 
 '''
 
@@ -22,11 +19,11 @@ while condición:
 
 numero = int(input("ingresa el número final: "))
 
-contador = 0
-suma=0
+contador = 0 #El contador se incializa en cero
+suma=0 #Suma se incia en cero
 
-while contador<=numero:
-    suma+=contador #va sumando al contador
+while contador<=numero: #hacer mientras el contador sea menor o igual al número
+    suma+=contador #va sumando al contador, que el contador es cada número hasta el número final que el usuario haya ingresado
     contador+=1 #incrementar contador en uno
 
 print(f"La suma de 0 hasta el número {numero} es {suma}")
