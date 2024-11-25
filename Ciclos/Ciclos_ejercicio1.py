@@ -5,7 +5,7 @@ print(" *                                                                  * ")
 print(" * Fecha: 28  octubre del 2024                                       * ")
 print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
-print(" * ciclo while (mientras) ejercicio  1                               * ")
+print(" * ciclo while (mientras) ejercicio  1 suma acumulativa              * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 '''
