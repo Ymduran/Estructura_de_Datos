@@ -21,13 +21,15 @@ print(" ** Ejemplos de uso de los conjuntos **")
 conjunto_nombres = set() #Conjunto vacío
 print(f"conjunto_vacío : {conjunto_nombres}")
 # Se añaden valores al conjunto con .add
-conjunto_nombres.add("Rebeca,Juan,Bryan,Yamilet, Galilea,Rosalinda,Jennifer,Tania,Héctor,Patricia, Addi,Alberto")
+conjunto_nombres.update(["Rebeca", "Juan", "Bryan", "Yamilet", "Galilea", "Rosalinda", "Jennifer", "Tania", "Héctor", "Patricia", "Addi", "Alberto"]) #.update para añadir varios elementos, se hace con corchetes y paréntesis
 print(f"Conjunto 303: {conjunto_nombres}")
-
+print(" ")
 print(" ** Ejemplos de uso de los conjuntos **")
-conjunto_nombres.add("Yamilet")
+conjunto_nombres.add("Yamilet") #.add para añadir un elemento
 #El conjunto no acepta duplicados
 #Ejemplo para eliminar
+print(f"Conjunto 303 añadiento a Yamilet: {conjunto_nombres}")
+print(" ")
 conjunto_nombres.remove("Juan") #para eliminar se hace sólo por referencia porque no tiene un orden
 
 #Para mostrar todos los elementos en el conjunto for
@@ -35,7 +37,4 @@ for nombre in conjunto_nombres:
     print(nombre, end = ",")
 
  #Para verificar si un elemento pertenece a un conjunto
- print(f"El elemento {"Rebeca"} pertenece al conjunto? {"Rebeca" in conjunto_nombres}")
-
- # Conjunto de números
- conjunto_numero = {}
+print(f"\nEl elemento 'Rebeca' pertenece al conjunto? {'Rebeca' in conjunto_nombres}")
