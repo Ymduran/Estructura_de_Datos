@@ -16,24 +16,24 @@ print("  ")
 
 print(" ** BIENVENIDO A BANCO AZTECA ** ")
 
-operacion=1
-saldo=0.0
+operacion=1 #Inicializa en cero solamente para que entre al ciclo, aunque también se puede hacer con una bandera
+saldo=0.0 #El saldo inicializa en cero, se hace antes del while porque de lo contrario este se reiniciaría en cero cada vez
 
-while operacion !=0:
+while operacion !=0: #Mientras que el ususario siga ingresando cualquier otra opción que no sea cero
     print(" ** Menú: ** ")
     print("[0].- Salir")
     print("[1].- Consultar saldo")
     print("[2].- Ingresar dinero")
     print("[3].- Retirar dinero")
 
-    operacion = int(input("ingresa la operación que desea realizar: "))
+    operacion = int(input("ingresa la operación que desea realizar: ")) #Para leer la opción elegida
 
     if operacion == 1: #consultar saldo
         print(f"su saldo hasta ahora es de: {saldo}")
         print("  ")
     elif operacion== 2:#ingresar dinero
         ingreso=float(input("ingrese cantidad a ingresar: "))
-        saldo+=ingreso
+        saldo+=ingreso #Se suma la cantidad a al saldo total
         print(f"su saldo ahora es de: {saldo}")
         print("  ")
     elif operacion==3:#retirar dinero
@@ -42,11 +42,11 @@ while operacion !=0:
             print("saldo insuficiente")
             print("  ")
         else: #si el saldo es igual o mayor que cantidad a retirar entonces se podrá realizar la operación
-            saldo-=retiro
+            saldo-=retiro #Resta del saldo
             print(f"su saldo ahora es de: {saldo}")
             print("  ")
     elif operacion==0:
-        print("saliendo del programa..")
+        print("saliendo del programa..") #Justo antes de salir imprime este letrero
     else:
         print("operación no válida")
 
