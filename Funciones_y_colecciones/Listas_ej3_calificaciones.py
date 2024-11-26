@@ -1,4 +1,3 @@
-
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" * Durán Breceda Lourdes Jamileth                                   * ")
 print(" *                                                                  * ")
@@ -9,7 +8,7 @@ print(" *  Promedios      primer parcial                                    * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
-print(" ")
+
 
 '''
 Este programa es una lista de las calificaciones de los alumnos del Parcial 1. La lista está conformada por el nombre del alumno y sus calificaciones.
@@ -36,50 +35,84 @@ def menu():
     print("6) Eliminar alumno y sus calificaciones. ")
     print("0) Salir. ")
 
+#Operaciones
+def funcion_operaciones_segun_menu(option):
+    count = 0
+    if option == 1:#------------------------------> Ver calificaciones de todos los alumnos.
+        if not alumnos: #Si la lista está vacía
+            print("Aún no hay alumnos para mostrar")
+            return
+        for alumno in alumnos:
+            print(f"{count}.- {alumno}")
+            count += 1
+        count = 0
+    elif option == 2:  #------------------------------> Ver calificaciones detalladas de un alumno.
+        if not alumnos: #Sí la lista está vacía
+            print("Aún no hay alumnos para mostrar")
+            return
+        indice = int(input("Ingrese número de índice del alumno a mostrar: "))
+        posicion = indice *5
+        print(alumnos[indice])
+
+    elif option == 3: #------------------------------> Ver promedios del Parcial 1 de todos los alumnos
+        for alumno in alumnos:
+            print(f"{count}.- = {alumno}") # Calcular promedio
+    elif option == 4: #------------------------------> Ver promedio grupal del Parcial 1.
+        if not alumnos:  # Si la lista está vacía
+            print("Aún no hay alumnos para mostrar")
+            return
+
+        total_calificaciones = 0
+        cantidad_calificaciones = 0
+
+        for alumno in alumnos:
+            calificaciones = alumno[1]  # Las calificaciones están en el segundo elemento de cada lista
+            total_calificaciones += sum(calificaciones)
+            cantidad_calificaciones += len(calificaciones)
+
+        promedio_grupal = total_calificaciones / cantidad_calificaciones
+        print(f"Promedio grupal del 1er parcial es de: {promedio_grupal:.2f}")
+    elif option == 5: #------------------------------> Agregar alumno y sus calificaciones
+        nombre = input("Ingrese nombre del alumno: ")
+        calificaciones = []
+        #Ingresar calificaciones
+        calificacion_ingresar = float(input("Ingrese calificación de Contabilidad: "))
+        calificaciones.append(calificacion_ingresar)
+        calificacion_ingresar = float(input("Ingrese calificación de Álgebra: "))
+        calificaciones.append(calificacion_ingresar)
+        calificacion_ingresar = float(input("Ingrese calificación de Estrucura de Datos: "))
+        calificaciones.append(calificacion_ingresar)
+        calificacion_ingresar = float(input("Ingrese calificación de Derecho y legislación: "))
+        calificaciones.append(calificacion_ingresar)
+        calificacion_ingresar = float(input("Ingrese calificación de Electrónica II: "))
+        calificaciones.append(calificacion_ingresar)
+
+        agrupar = [nombre,calificaciones]
+        alumnos.append(agrupar)
+        print(f"Se agregó a {nombre} exitosamente")
+
+    elif option == 6:  #------------------------------> Eliminar alumno y sus calificaciones
+        indice_eliminar = int(input("Ingrese número de índice del alumno que desea eliminar: "))
+        alumnos.pop(indice_eliminar)
+        print("Se eliminó con éxito")
+    elif option == 0:
+        print("Saliendo...")#Imprime este letrero justo antes de salir
+    else:
+        print("Opción no válida, intentélo de nuevo...")
+
+
+
 #Código nivel de módulo
 flag = 0 #Se usa una bandera para el while
-while flag = 0:
+#Declaración de las listas
+alumnos = []
+agrupar = []
+
+while flag == 0:
     menu()#Se manda a llamar la función menú, cuya función solo es mostrar el mení, por lo que no se le manda nada
     option = int(input("Ingresa una opción: "))
     funcion_operaciones_segun_menu(option)
     print(" ")
     if option == 0:
-        print("Saliendo...")#Imprime este letrero justo antes de salir
         flag = 1 #Cambia el valor de la bandera rompiendo el ciclo while
-
-
-#Declaración de las listas
-calificaciones = [ Contabilidad. Algebra, Derecho, Electronica ]
-alumnos = []
-un_alumno = [nombre,calificaciones]
-
-#Operaciones
-def funcion_operaciones_segun_menu(option):
-    count = 0
-    if option == 1:#------------------------------> Ver calificaciones de todos los alumnos.
-        for alumno in alumnos:
-            print(f"{count}.- {alumno}")
-            count += 1
-        elif not alumnos:
-            print("Aún no hay alumnos para mostrar")
-    if option == 2:  #------------------------------> Ver calificaciones detalladas de un alumno.
-        indice = int(input("Ingrese número de índice del alumno a mostrar"))
-        print(alumnos[indice])
-        elif not alumnos:
-            print("Aún no hay alumnos para mostrar")
-    if option == 3: #------------------------------> Ver promedios del Parcial 1 de todos los alumnos
-         count = 0
-        for alumno in alumnos:
-            print(f"{count}.- = {sum}") #todo: Calcular promedio
-    if option == 4: #------------------------------> Ver promedio grupal del Parcial 1.
-        print(f"Promedio grupal del 1er parcial es de {sum()}") #todo: Calcular promedios
-            elif not alumnos:
-                print("Aún no hay alumnos para mostrar")
-    if option == 5: #------------------------------> Agregar alumno y sus calificaciones
-        nombre = input("Ingrese nombre del alumno: ")
-        Contabilidad =
-        Algebra =
-        Estructura_de_Datos =
-        Derecho =
-        Electronica =
 
