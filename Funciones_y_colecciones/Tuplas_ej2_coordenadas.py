@@ -44,7 +44,7 @@ b) Utilice una tupla para almacenar las coordenadas (x,y) del punto.
 c) Utilice una lista para almacenar las tuplas de las coordenadas.
 
 '''
-lista_de_coordenas = []
+lista_de_coordenas = [] #Se crea lista de coordenadas que posteriormente almacenará tuplas
 def menu():
     print(" ** Menú: ** ")
     print("[1].- Ver coordenadas almacenadas")
@@ -55,40 +55,40 @@ def menu():
 
 def funcion_operacion_del_menu (opcion):
     count = 0
-    if opcion == 1:
-        if not lista_de_coordenas: #Sí la lista está vacía
+    if opcion == 1: # Ver lista
+        if not lista_de_coordenas: #Sí la lista está vacía imprime un letrero indicándolo
             print("No hay coordenadas para mostrar: ")
         for cordenada in lista_de_coordenas: #Imprime cada coordenada en la lista de coodenadas
-            print(f"Coordenada {count}.- {cordenada}")
+            print(f"Coordenada {count}.- {cordenada}") #El count indica el número de índice
             count += 1
-    if opcion == 2:
+    if opcion == 2: #Ingresar coordenada
         punto_x = int(input("Ingresa coordenada -x- del punto: "))
         punto_y = int(input("Ingresa cordenada -y- del punto: "))
-        lista_de_coordenas.append((punto_x, punto_y))
-        print("Se agregaron coordenas x y y :)")
-    if opcion == 3:
+        lista_de_coordenas.append((punto_x, punto_y)) #Agrega los puntos en una tupla y la agrega a la lista de coordenadas
+        print("Se agregaron coordenas -x- y -y- :)")
+    if opcion == 3: #Calcular la expresión de la recta
         #Esta parte imprime para que el usuario elija los puntos entre los cuales hará la ecuacuón
         if not lista_de_coordenas: #Sí la lista está vacía
             print("No hay coordenadas para mostrar: ")
-        for cordenada in lista_de_coordenas:
-            print(f"Punto {count}.- {cordenada}")
+        for cordenada in lista_de_coordenas:  # Imprime cada coordenada en la lista de coodenadas
+            print(f"Coordenada {count}.- {cordenada}")  # El count indica el número de índice
             count += 1
-
+        #El usuario ingresa entre cuáles puntos hará la ecucación
         punto1_indice = int(input("Ingrese el número del punto 1: "))
         punto2_indice = int(input("Ingrese el número del punto 2: "))
         #Desempaquetado de tuplas
-        x1,y1 = lista_de_coordenas[punto1_indice]
-        x2,y2 = lista_de_coordenas[punto2_indice]
+        x1,y1 = lista_de_coordenas[punto1_indice] #Accede a la lista de tuplas y saca cada término
+        x2,y2 = lista_de_coordenas[punto2_indice] #Accede a la lista de tuplas y saca cada término
         # Espresión de la recta: y = m1 + b
-        m = (y2 - y1) / (x2 - x1)
-        b = y1 - (m * x1)
+        m = (y2 - y1) / (x2 - x1) # m es la pendiente , la diferencia entre delta y y delta x
+        b = y1 - (m * x1) #
         print(f"el valor de la recta es: y = {m}x + {b}")
     if opcion == 4:
         # Esta parte imprime para que el usuario elija el punto a eliminar
         if not lista_de_coordenas:  # Sí la lista está vacía
             print("No hay coordenadas para mostrar: ")
-        for cordenada in lista_de_coordenas:
-            print(f"Punto {count}.- {cordenada}")
+        for cordenada in lista_de_coordenas:  # Imprime cada coordenada en la lista de coodenadas
+            print(f"Coordenada {count}.- {cordenada}")  # El count indica el número de índice
             count += 1
 
 
@@ -98,11 +98,12 @@ def funcion_operacion_del_menu (opcion):
 
 
 #Código nivel de módulo
-flag = 0
+flag = 0 #Bandera que controla el while
 while flag == 0:
     menu()
     opcion = int(input("Ingrese una opción: "))
     funcion_operacion_del_menu(opcion)
-    if opcion == 0:
+    print(" ")
+    if opcion == 0: #Si el usuario ingresa la opción cero salir, entonces rompe el ciclo
         print("Saliendo...")
         flag = 1
