@@ -14,7 +14,7 @@ Los conjuntos son:
 - Desordenados. No tiene índice
 - Inmutables. No son cambiables
 - Su declaración es con llaves (también para diccionarios)
-- Para declarar un conjunto vacío nombre_conjunto ser{}
+- Para declarar un conjunto vacío nombre_conjunto set()
 '''
 
 print(" ** Ejemplos de uso de los conjuntos **")

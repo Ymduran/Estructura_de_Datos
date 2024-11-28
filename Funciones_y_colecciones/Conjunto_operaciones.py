@@ -26,7 +26,7 @@ print(f"Intersección = {conjuntoA&conjuntoB}")
 print(f"Diferencia = {conjuntoA-conjuntoB}")
 
 lista_animales = ["pato", "perro", "pez", "pato", "zapato", "bambi"]
-conjunto_animales = set(lista_animales)
+conjunto_animales = set(lista_animales) #De lista a conjunto
 print(f"Conjunto animales: {conjunto_animales}")
 lista_modificada = list(conjunto_animales) #Palabra reservada para convertir a lista "list"
 print(f"Lista animales modificada: {lista_modificada}")
