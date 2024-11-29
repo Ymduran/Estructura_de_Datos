@@ -19,7 +19,7 @@ para ejecutar el programa.
 
 
 #Función hola: def nombre_función(dato_que_recibe)
-def hola(nombre):  # Para crear un afunción se usa la palabra reservada "def", el nombre y el dato a recibir
+def hola(nombre):  # Para crear un función se usa la palabra reservada "def", el nombre y el dato a recibir
     print(f"hola, {nombre}") #Imprime hola y el dato que recibió la función
 
 #Función calculadora: Esta función recibe una opción, y dos números del "código de nivel de módulo" y retorna/devuelve el resultado de las operaciones
@@ -42,7 +42,7 @@ def calculadora(opcion, numero1, numero2):
     return resultado
 
 #Función menú: Esta función no recibe nada, su función, valga la redundancia, es solo imprimir el menú
-def menu():
+def menu(): #No tiene nada entre los paréntesis puesto que no recibe nada
     print(" ** Menú: ** ")
     print("[1].- Suma")
     print("[2].- Resta")
@@ -59,11 +59,11 @@ hola(nombre)
 print("Adiós")
 
 
-menu()
-opcion = int(input("ingrese una opción: "))
+menu() #Se manda a llamar, pero sin ningún argumento
+opcion = int(input("ingrese una opción: ")) 
 numero_uno = float(input("ingrese primer número: "))
 numero_dos = float(input("ingrese segundo número: "))
-resultado = calculadora(opcion,numero_uno,numero_dos)
+resultado = calculadora(opcion,numero_uno,numero_dos) #Aquí se manda a llamar la función calculadora y se le mandan los datos entre parentesis (como una copia) para que trabaje con ellos
 print(f"El resultado es: {resultado:.2f}")
 
 

@@ -28,7 +28,7 @@ def funcion_operaciones_segun_menu(option): # Función principal para realizar l
         if not alumnos:  # Si la lista de alumnos está vacía
             print("Aún no hay alumnos para mostrar")
             return #Termina la función
-        for alumno in alumnos:  # Itera sobre la lista de alumnos
+        for alumno in alumnos:  # Itera sobre la lista de alumnos 
             print(f"{count}.- {alumno}")
             count += 1
         count = 0  # Reinicia el contador de nuevo en cero
@@ -36,7 +36,7 @@ def funcion_operaciones_segun_menu(option): # Función principal para realizar l
         if not alumnos:  # Si la lista de alumnos está vacía
             print("Aún no hay alumnos para mostrar")
             return
-        indice = int(input("Ingrese número de índice del alumno a mostrar: "))
+        indice = int(input("Ingrese número de índice del alumno a mostrar: ")) 
         print(alumnos[indice])  # Muestra la información del alumno con el índice
     elif option == 3:  #  ---------------------------------->Ver promedios del Parcial 1 de todos los alumnos
         if not alumnos:  # Verifica que existan alumnos para calcular promedios.
@@ -89,13 +89,12 @@ flag = 0  # Bandera para romper el ciclo while
 alumnos = []  # Lista principal para almacenar los datos de los alumnos
 agrupar = []  # Lista temporal para agrupar los datos antes de añadirlos a la lista principal
 
-while flag == 0:
+while flag == 0:  
     menu()  # Llama a la función menú para mostrar las opciones por lo que no se manda nada
-    option = int(input("Ingresa una opción: "))
+    option = int(input("Ingresa una opción: ")) 
     funcion_operaciones_segun_menu(option)  # Ejecuta la función correspondiente según la opción ingresada y se le manda la opcxión
-    print(" ")
+    print(" ")  
     if option == 0:  # Si la opción es 0, se termina el programa
         flag = 1  # Cambia el valor de la bandera para salir del while
-
 
 
