@@ -75,7 +75,8 @@ while flag == 0:
     funcion_rifa(opcion) #Se manda a llamar la función rifa, y como su lógica trabaja según la opción, pues como argumento se le manda la opción
     if opcion == 0: #si la opción es salir
         print("Saliendo del programa...") #Imprime este letrero justo antes de salir
-        flag = 1 #Se cambia el valor de bandera para romper el ciclo
+        flag = 1 #Se cambia el valor de la bandera para romper el ciclo
+
 
 
 
