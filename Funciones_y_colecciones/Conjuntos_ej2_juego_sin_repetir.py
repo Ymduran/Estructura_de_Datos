@@ -30,17 +30,20 @@ c) Al final, se deben mostrar todas las palabras ingresadas.
 flag = 0 #Bandera para controlar
 word_count = 1 #Contador de palabras
 conjunto_palabras = set()
+lista_copia_conjunto = [] #Esta lista guarda los mismos elementos que el conjunto, pero en el conjunto no se repiten los elementos, cosa que en las listas si, de esta manera puedo saber y una palabra ya se repitió
 topic = input("Ingrese el tema del juego: ")
 while flag == 0:
     word = input(f"Ingrese palabra {word_count} del tema de {topic}: ")
-    for palabra in conjunto_palabras:
-        if word == palabra:
-            print(f"El juego ha terminado, han dicho {word_count} palabras diferentes")
-            print(palabra)
-            flag = 1
-        else:
-            conjunto_palabras.add(word)
-            word_count += 1
+    conjunto_palabras.add(word)
+    lista_copia_conjunto.append(word)
+    if len(conjunto_palabras) != len(lista_copia_conjunto): #Accede al número de elementos del conjunto y de la lista
+        print(f"El juego ha terminado, han dicho {word_count} palabras diferentes")
+        print(conjunto_palabras)
+        flag = 1
+    else: #Si hay el mismo número de elementos en el conjunto que en la lista
+        word_count += 1
+
+
 
 
 
