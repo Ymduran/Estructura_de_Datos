@@ -1,49 +1,80 @@
-print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
-print(" * Durán Breceda Lourdes Jamileth                                   * ")
-print(" *                                                                  * ")
-print(" * Fecha: 05 de diciembre de 24                                     * ")
-print(" *                                                                  * ")
-print(" * Descripción:                                                     * ")
-print(" * La escalera                                                      * ")
-print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
-print(" ")
-print(" ")
+import random
 
-'''
-Instrucciones:
+# Constantes:
+PIEDRA = "Piedra"
+PAPEL = "Papel"
+TIJERAS = "Tijeras"
+JUGADOR = "Gana el jugador"
+EMPATE = "Empate"
+CPU = "Gana el CPU"
 
-Escribe un programa de nombre Ej1_escalera.py que realice lo que se indica en la descripción del programa.
-Comparte el enlace de GitHub en la caja de texto al final de la pregunta.
-Descripción del programa:
-Este programa dibuja una escalera, en donde el usuario ingresa el número de escalores.
-Si el número es positivo, la escalera será ascendente. Un ejemplo cuando se ingresa un valor de 4:
-        _
-      _|
-    _|
-  _|
-_|
+# Contadores globales
+puntos_jugador = 0
+puntos_cpu = 0
+puntos_empate = 0
 
-Si el número es negativo, la escalera será descendente. Un ejemplo cuando se ingresa un valor de -4:
-_
- |_
-   |_
-     |_
-       |_
+# Imprime y lee la opción del usuario
+def menu():
+    print("\n** PIEDRA, PAPEL O TIJERAS **")
+    print("[1].- Piedra")
+    print("[2].- Papel")
+    print("[3].- Tijeras")
+    print("[0].- Salir")
 
-Si el número es cero, se deberá salir del programa.
-Se debe mostrar la siguiente pantalla:
-  ***  Ejercicio 1. La escalera.  ***
-Ingresa el número de escalones (positivo - ascendente y negativo - descendente) o ingresa un cero para salir:
-Cualquier otro caso -> Opción no válida.
-Para ello:
-a) Solicite el número de escalones utilizando un ciclo.
-b) Muestre la escalera utilizando la lógica adecuada. Se requiere utilizar funciones para dibujar las escaleras para considerar el ejercicio como completo.
+# La función Jugar recibe la opción que eligió el usuario
+def jugar(option):
+    if option == 1:
+        eleccion_usuario = PIEDRA
+    elif option == 2:
+        eleccion_usuario = PAPEL
+    elif option == 3:
+        eleccion_usuario = TIJERAS
+    else:
+        return None, None  # Caso de salida o error
+    # Elección aleatoria del CPU
+    eleccion_cpu = random.choice([PIEDRA, PAPEL, TIJERAS])
+    print(f"Usuario: {eleccion_usuario}")
+    print(f"CPU: {eleccion_cpu}")
+    return eleccion_usuario, eleccion_cpu
 
-'''
-print(" ** Ejercicio 1. La escalera. ** ")
-print("Ingresa el número de escalones (positivo - ascendente y negativo - descendente) o ingresa un cero para salir: ")
+# Lógica para determinar el ganador y actualizar contadores
+def logica_contadora_del_juego(eleccion_usuario, eleccion_cpu):
+    global puntos_jugador, puntos_cpu, puntos_empate
+    # Diccionario de reglas
+    piedra_papel_tijeras = {
+        (PIEDRA, TIJERAS): JUGADOR,
+        (PIEDRA, PAPEL): CPU,
+        (TIJERAS, PAPEL): JUGADOR,
+        (TIJERAS, PIEDRA): CPU,
+        (PAPEL, PIEDRA): JUGADOR,
+        (PAPEL, TIJERAS): CPU
+    }
+    resultado = piedra_papel_tijeras.get((eleccion_usuario, eleccion_cpu), EMPATE)
+    if resultado == JUGADOR:
+        puntos_jugador += 1
+        print(JUGADOR)
+    elif resultado == CPU:
+        puntos_cpu += 1
+        print(CPU)
+    else:
+        puntos_empate += 1
+        print(EMPATE)
 
-numero_escalones = 7
-palito = "|"
-guion_bajo = 
-
+# Código nivel de módulo
+flag = 0  # Bandera para controlar el while
+while flag == 0:
+    menu()
+    try:
+        option = int(input("Elige una opción: "))
+        if option == 0:
+            print("Saliendo...")
+            break
+        elif option not in [1, 2, 3]:
+            print("Opción no válida, intenta de nuevo.")
+            continue
+        eleccion_usuario, eleccion_cpu = jugar(option)
+        if eleccion_usuario and eleccion_cpu:
+            logica_contadora_del_juego(eleccion_usuario, eleccion_cpu)
+        print(f"Marcador: Jugador {puntos_jugador}, CPU {puntos_cpu}, Empates {puntos_empate}")
+    except ValueError:
+        print("Por favor, introduce un número válido.")
