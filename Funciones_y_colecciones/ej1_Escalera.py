@@ -40,32 +40,39 @@ a) Solicite el número de escalones utilizando un ciclo.
 b) Muestre la escalera utilizando la lógica adecuada. Se requiere utilizar funciones para dibujar las escaleras para considerar el ejercicio como completo.
 
 '''
-print(" ** Ejercicio 1. La escalera. ** ")
-print("Ingresa el número de escalones (positivo - ascendente y negativo - descendente) o ingresa un cero para salir: ")
-
-
-
+def mensaje():
+    print(" ** Ejercicio 1. La escalera. ** ")
+    print("Ingresa el número de escalones (positivo - ascendente y negativo - descendente) o ingresa un cero para salir: ")
 
 espacio = "  "
 escalon_negativo = " |_"
 escalon_positivo = "_| "
-numero_de_escalones = 8
 
-print("  _")
-for i in range(0,numero_de_escalones):
-    print(f"{espacio*i}{escalon_negativo}")
+def funcion_escalones_ascendentes(numero_de_escalones):
+    print("_")
+    for i in range(0, numero_de_escalones):
+        print(f"{espacio * i}{escalon_negativo}")
 
-numero_de_escalones = -5
-for j in range(numero_de_escalones, 0):
-    print(f"{espacio*(j*-1)}{escalon_positivo}")
+
+def funcion_escalones_descendentes(numero_de_escalones):
+    print(f"{espacio * (numero_de_escalones * -1)}  _")
+    for j in range(numero_de_escalones, 0):
+        print(f"{espacio * (j * -1)}{escalon_positivo}")
+
 
 
 flag = 0
-
-
 while flag == 0:
-    print("  _")
-    flag = 1
+    mensaje()
+    numero_de_escalones = int(input("Ingrese un número: "))
+    if numero_de_escalones == 0:
+        print("Saliendo del programa... ")
+        flag = 1
+    elif numero_de_escalones > 0: #Si es mayor que cero, entonces es un número positivo
+        funcion_escalones_ascendentes(numero_de_escalones)
+    elif numero_de_escalones < 0: #Si es menor que cero, entonces se trata de un número negativo
+        funcion_escalones_descendentes(numero_de_escalones)
+
 
 
 
