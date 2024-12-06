@@ -58,6 +58,14 @@ for i in range(0,numero_de_escalones):
 numero_de_escalones = -5
 for j in range(numero_de_escalones, 0):
     print(f"{espacio*(j*-1)}{escalon_positivo}")
+
+
 flag = 0
-While flag == 0:
+
+
+while flag == 0:
+    print("  _")
+    flag = 1
+
+
 
