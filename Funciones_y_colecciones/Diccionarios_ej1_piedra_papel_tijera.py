@@ -1,4 +1,4 @@
-from random import random
+import random #Para poder usar el random.choice
 
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" * Durán Breceda Lourdes Jamileth                                   * ")
@@ -32,6 +32,9 @@ e) Muestre la cantidad de victorias, empates y derrotas.
 f) Repita nuevamente el menú hasta salir.
 '''
 
+
+
+# Constantes:
 PIEDRA = "Piedra"
 PAPEL = "Papel"
 TIJERAS = "Tijeras"
@@ -39,14 +42,20 @@ JUGADOR = "Gana el jugador"
 EMPATE = "Empate"
 CPU = "Gana el CPU"
 
+# Contadores del juego
+puntos_jugador = 0
+puntos_cpu = 0
+puntos_empate = 0
+
+# Imprime y lee la opción del usuario
 def menu():
-    print("** PIEDRA, PAPEL O TIJERAS **")
+    print("\n** PIEDRA, PAPEL O TIJERAS **")
     print("[1].- Piedra")
     print("[2].- Papel")
     print("[3].- Tijeras")
-    option = int(input("Elige una opción: "))
-    return option
+    print("[0].- Salir")
 
+#La función Jugar recibe la opción que eligió el usuario, lo que hace esta función es determinar ambas elecciones
 def jugar(option):
     if option == 1:
         eleccion_usuario = PIEDRA
@@ -54,9 +63,43 @@ def jugar(option):
         eleccion_usuario = PAPEL
     elif option == 3:
         eleccion_usuario = TIJERAS
+    # Elección aleatoria del CPU; En esta parte el cpu elige la opción con el random.choice (Que se utiliza para que elija un elemento aleatorio de una lista)
+    eleccion_cpu = random.choice([PIEDRA, PAPEL, TIJERAS])
 
-    eleccion_cpu = random.choice([PIEDRA, PAPEL,TIJERAS])
-    return eleccion_usuario,eleccion_cpu
+    print(f"Usuario: {eleccion_usuario}") #Imprime lo que haya elegido el usuario
+    print(f"CPU: {eleccion_cpu}") #Imprime lo que haya elegido el cpu para que el usuario pueda visualizarlo mejor
+    return eleccion_usuario, eleccion_cpu #Retorna la elección del usuario y la del cpu
+
+# Función lógica para determinar el ganador y actualizar los contadores
+def logica_contadora_del_juego(eleccion_usuario, eleccion_cpu): #Esta función recibe la elección del usuario y la del jugador
+    global puntos_jugador, puntos_cpu, puntos_empate #La palabra reservada "global" sirve para acceder a estas variables fuera de la función, ya que si las declaro aquí, se reiniciarían y perdería la cuenta
+    # Diccionario de reglas
+    piedra_papel_tijeras = { (PIEDRA, TIJERAS): JUGADOR,(PIEDRA, PAPEL): CPU,(TIJERAS, PAPEL): JUGADOR,(TIJERAS, PIEDRA): CPU,(PAPEL, PIEDRA): JUGADOR,(PAPEL, TIJERAS): CPU}
+
+    resultado = piedra_papel_tijeras.get((eleccion_usuario, eleccion_cpu), EMPATE)
+
+    if resultado == JUGADOR:
+        puntos_jugador += 1 #Aumenta el contador de puntos_juagador
+        print(JUGADOR)
+    elif resultado == CPU:
+        puntos_cpu += 1 #Aumenta el contador de puntos_cpu
+        print(CPU)
+    else:
+        puntos_empate += 1 #Aumenta el contador de puntos_empatw
+        print(EMPATE)
+
+# Código nivel de módulo
+flag = 0  # Bandera para controlar el while
+while flag == 0:
+    menu()
+    option = int(input("Elige una opción: "))
+    if option == 0:
+        print("Saliendo...")
+        flag = 1 #Para romper el ciclo
+    eleccion_usuario, eleccion_cpu = jugar(option)
+
+    logica_contadora_del_juego(eleccion_usuario, eleccion_cpu)
+    print(f"Marcador: Jugador {puntos_jugador}, CPU {puntos_cpu}, Empates {puntos_empate}")
 
 
 
