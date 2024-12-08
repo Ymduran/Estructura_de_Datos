@@ -40,32 +40,51 @@ a) Solicite el número de escalones utilizando un ciclo.
 b) Muestre la escalera utilizando la lógica adecuada. Se requiere utilizar funciones para dibujar las escaleras para considerar el ejercicio como completo.
 
 '''
-print(" ** Ejercicio 1. La escalera. ** ")
-print("Ingresa el número de escalones (positivo - ascendente y negativo - descendente) o ingresa un cero para salir: ")
 
 
+def menu():
+    print(" ")
+    print(" ")
+    print(" ** Ejercicio 1. La escalera. ** ")
+    print("Número de escalones (positivo - ascendente y negativo - descendente) o ingresa un cero para salir")
 
 
 espacio = "  "
-escalon_negativo = " |_"
 escalon_positivo = "_| "
-numero_de_escalones = 8
-
-print("  _")
-for i in range(0,numero_de_escalones):
-    print(f"{espacio*i}{escalon_negativo}")
-
-numero_de_escalones = -5
-for j in range(numero_de_escalones, 0):
-    print(f"{espacio*(j*-1)}{escalon_positivo}")
+escalon_negativo = " |_"
 
 
+
+def imprimir_escalones_ascendentes(numero_de_escalones):  # Cuando es un número positivo
+    print(f"{espacio * (numero_de_escalones*-1)}  _")
+    for i in range(numero_de_escalones,0):
+        print(f"{espacio * (i*-1)}{escalon_positivo}")
+
+
+def imprimir_escalones_descendentes(numero_de_escalones):  # Cuando es un número negativo
+    print("_")
+    for j in range(0,numero_de_escalones):
+        print(f"{espacio * (j)}{escalon_negativo}")
+
+
+# código a nivel de módulo
 flag = 0
-
-
 while flag == 0:
-    print("  _")
-    flag = 1
+    menu()
+    numero_de_escalones = int(input("Ingresa número entero: "))
+    if numero_de_escalones == 0:
+        print("Saliendo...")
+        flag = 1  # Rompe el ciclo
+    elif numero_de_escalones < 0:  # Si se trata de un número negativo
+        numero_de_escalones = numero_de_escalones * -1
+        imprimir_escalones_descendentes(numero_de_escalones)
+    elif numero_de_escalones > 0:  # Si se trata de un número positivo
+        numero_de_escalones = numero_de_escalones * -1
+        imprimir_escalones_ascendentes(numero_de_escalones)
+
+
+
+
 
 
 
