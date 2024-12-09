@@ -9,21 +9,20 @@ print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
-
+print("\n** Test del Sombrero Seleccionador**\n")
 import random
 
 def menu():
     print("** Menú **")
-    print("[1].- Iniciar test..")
-    print("[2].- Salir..")
-    opcion_elejida = int(input("Ingresa número: "))
-    return opcion_elejida
+    print("[1].- Iniciar test.")
+    print("[2].- Salir.")
+    opcion = int(input("Ingresa número: "))
+    return opcion
 
-def iniciar_test():
-    # Mostrar introducción del test
-    print("\n¡Bienvenido al test del Sombrero Seleccionador!\n")
 
-    # Diccionario de preguntas y respuestas
+
+
+    # Lista de diccionario de preguntas y respuestas
     preguntas = [
         {"pregunta": "¿Cuál de las siguientes opciones odiarías más que la gente te llamara?",
          "respuestas": {"Gryffindor": "Ordinario", "Slytherin": "Ignorante", "Hufflepuff": "Cobarde", "Ravenclaw": "Egoísta"}},
@@ -41,11 +40,11 @@ def iniciar_test():
          "respuestas": {"Gryffindor": "C", "Slytherin": "Python", "Hufflepuff": "C++", "Ravenclaw": "JavaScript"}}
     ]
 
-    # Contador de puntos por casa
+    # Diccionario contador de puntos de cada casa
     puntuaciones = {"Gryffindor": 0, "Slytherin": 0, "Hufflepuff": 0, "Ravenclaw": 0}
 
     # Selección de preguntas sin repetir
-    preguntas_seleccionadas = []
+    preguntas_seleccionadas = [] #Se crea una lista
     while len(preguntas_seleccionadas) < 5:
         indice = random.randint(0, len(preguntas) - 1)
         if indice not in preguntas_seleccionadas:
