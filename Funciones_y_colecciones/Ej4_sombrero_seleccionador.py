@@ -18,29 +18,32 @@ def menu():
     print("** Menú **")
     print("[1].- Iniciar test.")
     print("[2].- Salir.")
-    opcion = int(input("Ingresa número: "))
-    return opcion
+    
 
 
 
 
-    # Lista de diccionario de preguntas y respuestas
-    preguntas = [
-        {"pregunta": "¿Cuál de las siguientes opciones odiarías más que la gente te llamara?",
-         "respuestas": {"Gryffindor": "Ordinario", "Slytherin": "Ignorante", "Hufflepuff": "Cobarde", "Ravenclaw": "Egoísta"}},
-        {"pregunta": "Después de tu muerte, ¿qué es lo que más le gustaría que hiciera la gente cuando escuche tu nombre?",
-         "respuestas": {"Gryffindor": "Te extraña, pero sonríe", "Slytherin": "Pide más historias sobre tus aventuras","Hufflepuff": "Piensa con admiración tus logros","Ravenclaw": "No me importa lo que piensen de mí después de mi muerte, lo que piensen de mí ahora es lo que cuenta"}},
-        {"pregunta": "Dada la opción, ¿preferirías inventar una poción que garantizara?",
-         "respuestas": {"Gryffindor": "Gloria", "Slytherin": "Sabiduría", "Hufflepuff": "Amor", "Ravenclaw": "Poder"}},
-        {"pregunta": "¿Cómo te definirías en una sola palabra?",
-         "respuestas": {"Gryffindor": "Valiente", "Slytherin": "Ambicioso", "Hufflepuff": "Leal", "Ravenclaw": "Curioso"}},
-        {"pregunta": "¿Qué cualidad te describe mejor?",
-         "respuestas": {"Gryffindor": "La fuerza", "Slytherin": "La astucia", "Hufflepuff": "La paciencia", "Ravenclaw": "La inteligencia"}},
-        {"pregunta": "¿Cuál es tu clase favorita?",
-         "respuestas": {"Gryffindor": "Vuelo", "Slytherin": "Defensa contra las artes oscuras","Hufflepuff": "Animales fantásticos", "Ravenclaw": "Pociones"}},
-        {"pregunta": "¿Cuál es tu lenguaje de programación favorito?",
-         "respuestas": {"Gryffindor": "C", "Slytherin": "Python", "Hufflepuff": "C++", "Ravenclaw": "JavaScript"}}
-    ]
+# Lista de diccionario de preguntas y respuestas
+preguntas = [
+    {"pregunta": "¿Cuál de las siguientes opciones odiarías más que la gente te llamara?",
+    "respuestas": {"Gryffindor": "Ordinario", "Slytherin": "Ignorante", "Hufflepuff": "Cobarde", "Ravenclaw": "Egoísta"}},
+    {"pregunta": "Después de tu muerte, ¿qué es lo que más le gustaría que hiciera la gente cuando escuche tu nombre?",
+    "respuestas": {"Gryffindor": "Te extraña, pero sonríe", "Slytherin": "Pide más historias sobre tus aventuras","Hufflepuff": "Piensa con admiración tus logros","Ravenclaw": "No me importa lo que piensen de mí después de mi muerte, lo que piensen de mí ahora es lo que cuenta"}},
+    {"pregunta": "Dada la opción, ¿preferirías inventar una poción que garantizara?",
+    "respuestas": {"Gryffindor": "Gloria", "Slytherin": "Sabiduría", "Hufflepuff": "Amor", "Ravenclaw": "Poder"}},
+    {"pregunta": "¿Cómo te definirías en una sola palabra?",
+    "respuestas": {"Gryffindor": "Valiente", "Slytherin": "Ambicioso", "Hufflepuff": "Leal", "Ravenclaw": "Curioso"}},
+    {"pregunta": "¿Qué cualidad te describe mejor?",
+    "respuestas": {"Gryffindor": "La fuerza", "Slytherin": "La astucia", "Hufflepuff": "La paciencia", "Ravenclaw": "La inteligencia"}},
+    {"pregunta": "¿Cuál es tu clase favorita?",
+    "respuestas": {"Gryffindor": "Vuelo", "Slytherin": "Defensa contra las artes oscuras","Hufflepuff": "Animales fantásticos", "Ravenclaw": "Pociones"}},
+    {"pregunta": "¿Cuál es tu lenguaje de programación favorito?",
+    "respuestas": {"Gryffindor": "C", "Slytherin": "Python", "Hufflepuff": "C++", "Ravenclaw": "JavaScript"}}
+]
+
+
+
+def iniciar_test():
 
     # Diccionario contador de puntos de cada casa
     puntuaciones = {"Gryffindor": 0, "Slytherin": 0, "Hufflepuff": 0, "Ravenclaw": 0}
@@ -74,42 +77,39 @@ def menu():
             respuesta = input("Respuesta: ").strip()
             if respuesta in opciones:
                 # Buscar la casa correspondiente a la respuesta
-                for casa, texto in pregunta["respuestas"]:
+                for casa, texto in pregunta["respuestas"].items():  # 
                     if opciones[respuesta] == texto:
-                        puntuaciones[casa] += 1 #Se suma a los puntos de la casa 
+                        puntuaciones[casa] += 1
                 flag = 1
             else:
                 print("Opción no válida :(")
 
     # Para obtener la casa con mayor puntuación
-    casa_seleccionada = max(puntuaciones, key=puntuaciones.get)
-    # Para obtener la casa con mayor puntuación
-casa_seleccionada = None
-mayor_puntuacion = -1  # Inicializamos con un valor muy bajo
+    casa_seleccionada = None #Se inicializa en nada
+    mayor_puntuacion = -1  # La variable mayor_puntucación inicia con un valor muy bajo para que se puedair comparando con el resto
 
-for casa, puntos in puntuaciones.items():  # Iteramos sobre las casas y sus puntajes
-    if puntos > mayor_puntuacion:  # Comparamos si la puntuación actual es mayor
-        mayor_puntuacion = puntos  # Actualizamos la mayor puntuación
-        casa_seleccionada = casa  # Actualizamos la casa seleccionada
-
+    for casa, puntos in puntuaciones.items():  # Itera sobre las casas y sus puntajes
+        if puntos > mayor_puntuacion:  #Se ompara si la puntuación actual es mayor
+            mayor_puntuacion = puntos  # Actualiza la mayor puntuación
+            casa_seleccionada = casa  # Actualiza la casa seleccionada de mayor
     
     
-    
-    print(f"\nEl sombrero seleccionador te ha asignado a la casa {casa_seleccionada}.\n")
+    print(f"El sombrero seleccionador te ha asignado a la casa {casa_seleccionada}.") #Imprime la casa
 
-def seleccion(opcion):
-    if opcion == 1:
-        iniciar_test()
-    elif opcion == 2:
-        print("Saliendo...")
-    else:
-        print("Opción no válida. Intenta nuevamente.")
 
-# Menú principal
+#Código nivel de módulo
 print("***  Test del sombrero seleccionador de Harry Potter.  ***")
+flag = 0
+while flag == 0:
+    menu()
+    opcion = int(input("Ingresa respuesta: "))
+    if opcion == 2:
+        print("Saliendo...")
+        flag = 1
+    elif opcion == 1:
+        iniciar_test()    
+    else:
+        print("Opción no válida :(")
+        
 
-opcion = 0
-while opcion != 2:
-    opcion = menu()
-    seleccion(opcion)
 
