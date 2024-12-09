@@ -33,16 +33,155 @@ c) Se debe convertir los caracteres sin importar si son mayúsculas o minúscula
 sin modificar los caracteres que no se convirtieron. Ejemplos con el lenguaje básico: 
 hola -> h0l4, Hola -> H0l4, HOLA -> H0L4.
 '''
+print("***  Ejercicio 3. Lenguaje hacker (l33t sp34k).  ***")
 
+def menu():
+    print(" ")
+    print("---------------------------------------- ")
+    print("1) Convertir un texto a lenguaje básico.")
+    print("2) Convertir un texto a lenguaje intermedio.")
+    print("0) Salir.")
 
-#Conversión de letras en el nivel básico
-conversion_nivel_basico = {
-        a: 4,
-        A: 4,
-        e: 3,
-        E: 3,
-        i: 
-        
-    }
+# Diccionario de los caracteres que se reemplazan en el nivel básico
+diccionario_conversion_nivel_basico = {
+    'a': '4',
+    'A': '4',
+    'e': '3',
+    'E': '3',
+    'i': '1',
+    'o': '0',
+    'O': '0',
+    'u': '(_)',
+    'U': '(_)'
+}
+
+#Diccionario de los caracteres que se reemplazarán en el nivel intermedio
+diccionario_conversion_nivel_intermedio = {
+    'a': '4',
+    'A': '4',
+    
+    'b': 'l3',
+    'B': 'l3',
+    
+    'c': '[',
+    'C': '[',
+    
+    'd': ')',
+    'D': ')',
+    
+    'e': '3',
+    'E': '3',
+    
+    'f': '|=',
+    'F': '|=',
+    
+    'g': '&',
+    'G': '&',
+    
+    'h': '#',
+    'H': '#',
+    
+    'i': '1',
+    'I': '1',
+    
+    'j': ',_|',
+    'J': ',_|',
+    
+    'k': '>|',
+    'K': '>|',
+    
+    'l': '1',
+    'L': '1',
+    
+    'm': '/\/\ ',
+    'M': '/\/\ ',
+    
+    'n': '^/',
+    'N': '^/',
+    
+    'o': '0',
+    'O': '0',
+    
+    'p': '|*',
+    'P': '|*',
+    
+    'q': '(_,)',
+    'Q': '(_,)',
+    
+    'r': 'l2',
+    'R': 'l2',
+    
+    's': '5',
+    'S': '5',
+    
+    't': '7',
+    'T': '7',
+    
+    'u': '(_)',
+    'U': '(_)',
+    
+    'v': '\/',
+    'V': '\/',
+    
+    'w': '\/\/',
+    'W': '\/\/',
+    
+    'x': '><',
+    'X': '><',
+    
+    'y': 'j',
+    'Y': 'j',
+    
+    'y': '2',
+    'Y': '2'
     
     
+}
+
+
+
+# Función para convertir el texto en lenguaje básico
+def convertir_texto_basico(texto, diccionario_basico):
+    texto_convertido = "" #Texto_convertido inica como cadena vacía
+    for caracter in texto:
+        # Reemplaza el carácter si está en el diccionario, si no, queda igual
+        texto_convertido += diccionario_basico.get(caracter, caracter)
+    return texto_convertido
+
+
+
+#Fución para convertir el texto a lenguaje intermedio
+def convertir_texto_intermedio(texto,diccionario_intermedio):
+    texto_convertido = "" #Texto_convertido inica como cadena vacía
+    for caracter in texto:
+        # Reemplaza el carácter si está en el diccionario, si no, queda igual
+        texto_convertido += diccionario_intermedio.get(caracter, caracter)
+    return texto_convertido
+    
+    
+def conversion(option):
+    texto_original = input("Ingresa texto a convertir: ")
+    if option == 1:
+        texto_covertido = convertir_texto_basico(texto_original,diccionario_conversion_nivel_basico)
+    elif option == 2:
+        texto_covertido = convertir_texto_intermedio(texto_original, diccionario_conversion_nivel_intermedio)
+    else:
+        print("Opción no válida :(")
+    return texto_covertido
+    
+    
+    
+
+#Código nivel de módulo
+flag = 0
+while flag == 0:
+    menu()
+    option = int(input("Ingresa una opción: "))
+    if option == 0:
+        print("Saliendo...")
+        flag = 1 #Rompe el ciclo
+    else:
+        print(f"Texto convertido : {conversion(option)}")
+
+    
+
