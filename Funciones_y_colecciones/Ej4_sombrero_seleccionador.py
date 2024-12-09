@@ -13,6 +13,8 @@ print("\n** Test del Sombrero Seleccionador**\n")
 import random
 
 def menu():
+    print("------------------------------------------------------------------ ")
+    print(" ")
     print("** Menú **")
     print("[1].- Iniciar test.")
     print("[2].- Salir.")
@@ -44,38 +46,48 @@ def menu():
     puntuaciones = {"Gryffindor": 0, "Slytherin": 0, "Hufflepuff": 0, "Ravenclaw": 0}
 
     # Selección de preguntas sin repetir
-    preguntas_seleccionadas = [] #Se crea una lista
-    while len(preguntas_seleccionadas) < 5:
-        indice = random.randint(0, len(preguntas) - 1)
-        if indice not in preguntas_seleccionadas:
-            preguntas_seleccionadas.append(indice)
+    preguntas_seleccionadas = [] #Se crea una lista de las preguntas, las cuales se harán de forma aleatoria
+    while len(preguntas_seleccionadas) < 5: #Lo hará cinco veces, pusto que solo se ocupan 5 preguntas
+        indice = random.randint(0, len(preguntas) - 1) #Índice de la lista de preguntas, se seleccionará aleatoriamente
+        if indice not in preguntas_seleccionadas: #Sí el índice no está entre la lista de las preguntas 
+            preguntas_seleccionadas.append(indice) #Entonces lo añade en la lisrta de preguntas a mostrar
 
-    for indice in preguntas_seleccionadas:
-        pregunta = preguntas[indice]
-        print(f"\n{pregunta['pregunta']}")
-        respuestas = list(pregunta["respuestas"].items())
-        random.shuffle(respuestas)  # Ordenar aleatoriamente las opciones
+    for indice in preguntas_seleccionadas: #Ahora con la lista de preguntas hecha, en cada 
+        pregunta = preguntas[indice] #Se asigna cada elemento de la lista a una variable individual
+        print(f"\n{pregunta['pregunta']}") #Se imprime el elemento del diccionario desde la clave "Pregunta"
+        respuestas = list(pregunta["respuestas"].items()) #Y lo combierte a una lista las respuestas del diccionario, la converión se hace con list y el ,item accede al valor del diccionario, es decir clave y diccionario
+        respuestas = set(respuestas) #Se convierte a conjunto con el set con el fin de guardarlos de forma aleatoria
+        respuestas = list(respuestas) #Y se vuelve a guardar como una lista con "list"
+        
 
-        # Mostrar opciones
-        opciones = {str(i + 1): respuesta[1] for i, respuesta in enumerate(respuestas)}
-        for clave, valor in opciones.items():
-            print(f"{clave}) {valor}")
+
+        # Mostrar respuestas a elegir por el usuario
+        
+        opciones = {str(i + 1): respuesta[1] for i, respuesta in enumerate(respuestas)} #Se asigna  a la variable "opciones" las respuestas de del diccionario de respuestas, y como no se moestrará las casa, por eso semuestra la siguiente posición
+        
+        for clave, valor in opciones.items(): #Para iterar en el diccionario con su clave y valor
+            print(f"{clave}) {valor}") 
 
         # Obtener respuesta válida del usuario
-        while True:
-            respuesta = input("Selecciona una opción (1-4): ").strip()
+        flag = 0
+        while flag == 0:
+            respuesta = input("Respuesta: ").strip()
             if respuesta in opciones:
                 # Buscar la casa correspondiente a la respuesta
-                for casa, texto in pregunta["respuestas"].items():
+                for casa, texto in pregunta["respuestas"]:
                     if opciones[respuesta] == texto:
-                        puntuaciones[casa] += 1
-                break
+                        puntuaciones[casa] += 1 #Se suma a los puntos de la casa 
+                flag = 1
             else:
-                print("Opción no válida. Intenta nuevamente.")
+                print("Opción no válida :(")
 
-    # Determinar la casa con mayor puntuación
+    # Para obtener la casa con mayor puntuación
     casa_seleccionada = max(puntuaciones, key=puntuaciones.get)
-    print(f"\n¡Felicidades! El sombrero seleccionador te ha asignado a la casa {casa_seleccionada}.\n")
+    
+    
+    
+    
+    print(f"\nEl sombrero seleccionador te ha asignado a la casa {casa_seleccionada}.\n")
 
 def seleccion(opcion):
     if opcion == 1:
@@ -92,3 +104,4 @@ opcion = 0
 while opcion != 2:
     opcion = menu()
     seleccion(opcion)
+
