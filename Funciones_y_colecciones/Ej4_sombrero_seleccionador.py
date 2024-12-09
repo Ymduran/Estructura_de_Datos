@@ -83,7 +83,15 @@ def menu():
 
     # Para obtener la casa con mayor puntuación
     casa_seleccionada = max(puntuaciones, key=puntuaciones.get)
-    
+    # Para obtener la casa con mayor puntuación
+casa_seleccionada = None
+mayor_puntuacion = -1  # Inicializamos con un valor muy bajo
+
+for casa, puntos in puntuaciones.items():  # Iteramos sobre las casas y sus puntajes
+    if puntos > mayor_puntuacion:  # Comparamos si la puntuación actual es mayor
+        mayor_puntuacion = puntos  # Actualizamos la mayor puntuación
+        casa_seleccionada = casa  # Actualizamos la casa seleccionada
+
     
     
     
