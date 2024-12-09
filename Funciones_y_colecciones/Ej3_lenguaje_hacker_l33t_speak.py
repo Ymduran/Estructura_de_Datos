@@ -35,7 +35,7 @@ hola -> h0l4, Hola -> H0l4, HOLA -> H0L4.
 '''
 print("***  Ejercicio 3. Lenguaje hacker (l33t sp34k).  ***")
 
-def menu():
+def menu(): #Función menú, se encarga de imprimir el menú
     print(" ")
     print("---------------------------------------- ")
     print("1) Convertir un texto a lenguaje básico.")
@@ -159,15 +159,15 @@ def convertir_texto_intermedio(texto,diccionario_intermedio):
     return texto_convertido
     
     
-def conversion(option):
-    texto_original = input("Ingresa texto a convertir: ")
-    if option == 1:
-        texto_covertido = convertir_texto_basico(texto_original,diccionario_conversion_nivel_basico)
-    elif option == 2:
+def conversion(option): 
+    texto_original = input("Ingresa texto a convertir: ") #El usuario ingresa el texto
+    if option == 1: #Llama a la fución que convierte el texto a básico
+        texto_covertido = convertir_texto_basico(texto_original,diccionario_conversion_nivel_basico) 
+    elif option == 2: #Llama a la función que convierte el texto a intermedio
         texto_covertido = convertir_texto_intermedio(texto_original, diccionario_conversion_nivel_intermedio)
     else:
         print("Opción no válida :(")
-    return texto_covertido
+    return texto_covertido #Retorna el texto convertido según la función
     
     
     
