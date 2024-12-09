@@ -132,8 +132,8 @@ diccionario_conversion_nivel_intermedio = {
     'y': 'j',
     'Y': 'j',
     
-    'y': '2',
-    'Y': '2'
+    'z': '2',
+    'Z': '2'
     
     
 }
