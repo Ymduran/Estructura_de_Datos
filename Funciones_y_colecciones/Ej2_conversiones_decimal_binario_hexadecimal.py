@@ -72,9 +72,10 @@ def decimal_a_binario_hexadecimal():
         if numero_decimal_auxiliar == 0 or numero_decimal_auxiliar == 1:
             lista_hexadecimal.append(numero_decimal_auxiliar)
             flag_decimal_hexadecimal = 1
-        print(f"{numero_decimal} en hexadecimal es: ")
-        for i in range(1, len(lista_hexadecimal) + 1):
-            print(f"{lista_hexadecimal[i * -1]}", end="")
+        
+    print(f"{numero_decimal} en hexadecimal es: ")
+    for i in range(1, len(lista_hexadecimal) + 1):
+        print(f"{lista_hexadecimal[i * -1]}", end="")
 
 
 
