@@ -13,9 +13,7 @@ print(" ")
 Conversor a números enteros y fotantes con validación
 #pass instrucción para "no hacer nada" como algo pendiente
 También se pueden usar los tres puntos "..." 
-  print("[1].- Convertir a entero")
-    print("[2].- Convertir a flotante")
-    print("[0].- Salir")
+
     
 #TO DO significa "por hacer"
 # FIXME significa "repárame"
