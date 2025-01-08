@@ -21,7 +21,7 @@ También se pueden usar los tres puntos "..."
 # FIXME significa "repárame"
     
 '''
-#TODO implementar el menú
+#
 def menu():
     pass
 
