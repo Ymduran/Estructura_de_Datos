@@ -43,7 +43,6 @@ def calcular(option:int) -> float | None:
 
 
 if __name__ == '__main__':
-
     def main() -> None:
         print(__name__)
 

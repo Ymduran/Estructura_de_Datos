@@ -1,18 +1,24 @@
+
+
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" * Durán Breceda Lourdes Jamileth                                   * ")
 print(" *                                                                  * ")
-print(" * Fecha:  13 de diciembre del 2025                                 * ")
+print(" * Fecha:  18 de Enero del 2025                                     * ")
 print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
-print(" * Saludar módulo                                                  * ")
+print(" * Argumentos por nombre                                            * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
 def main() -> None:
     if __name__ == '__main__':
-        nombre = input("Ingrese el nombre: ")
-        edad = int("Ingrese ")
+        nombre = "Yamileth"
+        edad = 19
+        matricula = 2103232005
+        grupo = 303
+        semestre = 3
+        imprimir_alumno(nombre, edad, matricula, grupo, semestre)
 
 
 
@@ -32,3 +38,6 @@ def imprimir_alumno (nombre : str, edad: int, matricula: int, grupo: int, semest
     print(f"Matrícula:  {matricula}")
     print(f"Grupo:  {grupo}")
     print(f"Semestre: {semeste}")
+
+
+main()
