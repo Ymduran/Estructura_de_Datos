@@ -22,7 +22,8 @@ def menu() -> None:
 
 def calcular(option:int) -> float | None:
     """
-    :param option:
+    Función que hace la suma o resta de dos números, según lo desee el usuario
+    :param option: Recibe un entero
     :return: Retorna el resultado en tipo flotante o de no tratarse de un número enonces retorna none
     """
 
@@ -42,19 +43,19 @@ def calcular(option:int) -> float | None:
 
 
 
+def main() -> None:
+    if __name__ == '__main__':
+        flag = 0
+        while flag == 0:
+            menu()
+            option = int(input("Igrese una opción: "))
+            if option == 1 or option == 2:
+                resultado = calcular(option)
+                print(f"El resultado de la operación es: {resultado}")
+            elif option == 3:
+                print("Saliendo...")
+                flag = 1
+            else:
+                print("Opción no válida. Intente de nuevo")
 
-if __name__ == '__main__':
-    flag = 0
-    while flag == 0:
-        menu()
-        option = int(input("Igrese una opción: "))
-        if option == 1 or option == 2:
-            resultado = calcular(option)
-            print(f"El resultado de la operación es: {resultado}")
-        elif option == 3:
-            print("Saliendo...")
-            flag = 1
-        else:
-            print("Opción no válida. Intente de nuevo")
-
-
+main()
