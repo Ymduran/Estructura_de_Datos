@@ -39,11 +39,12 @@ def calcular(option:int) -> float | None:
     else:
         return None
 
-    return 0
+
 
 
 
 def main() -> None:
+    print(__name__)
     if __name__ == '__main__':
         flag = 0
         while flag == 0:

@@ -22,6 +22,7 @@ def saludar(nombre: str) -> None:
 #Código nivel de núdulo
 
 if __name__ == '__main__':
+    print(__name__)
     nombre = input("Ingresa nombre: ")
     saludar(nombre)
 

@@ -14,3 +14,4 @@ print(" ")
 if __name__ == '__main__': # Es decir, sí es el archivo principal
     username = input("Ingrese su nombre: ")
     saludar(username)
+    print(saludar.__name__)
