@@ -9,10 +9,13 @@ print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
+
+
+
 # Funciones de validación
 def cadena_a_entero(cadena: str) -> int | None:
     """
-    Función que valida la cadena que ingresa el usuario para que sea correctamente tomado como un entero
+    Función que valida la cadena que ingresa el usuario como opción para que sea correctamente tomado como un entero
     :param cadena: De tipo cadena
     :return: Retorna un entero, o de no tratarse de un número, retorna None
     """
