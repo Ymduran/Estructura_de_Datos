@@ -1,32 +1,15 @@
+
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" * Durán Breceda Lourdes Jamileth                                   * ")
 print(" *                                                                  * ")
-print(" * Fecha:  14 de diciembre del 2025                                 * ")
+print(" * Fecha:  13 de diciembre del 2025                                 * ")
 print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
-print(" * Funcion main con validación de datos                            * ")
+print(" * funcion main                                                     * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
-# Funciones de validación del Código 1
-def cadena_a_entero(cadena: str) -> int | None:
-    numero_guiones = cadena.count("-")
-    revisar_cadena = cadena.lstrip("-")
-    if revisar_cadena.isnumeric() and numero_guiones in (0, 1):
-        return int(cadena)
-    else:
-        return None
-
-def cadena_a_flotante(cadena: str) -> float | None:
-    numero_puntos = cadena.count(".")
-    revisar_cadena = cadena.replace(".", "").lstrip("-")
-    if revisar_cadena.isnumeric() and numero_puntos in (0, 1):
-        return float(cadena)
-    else:
-        return None
-
-# Menú y cálculo
 def menu() -> None:
     """
     Función que muestra el menú
@@ -37,57 +20,43 @@ def menu() -> None:
     print("2.- Restar ")
     print("3.- Salir ")
 
-def calcular(option: int) -> float | None:
+def calcular(option:int) -> float | None:
     """
     Función que hace la suma o resta de dos números, según lo desee el usuario
     :param option: Recibe un entero
-    :return: Retorna el resultado en tipo flotante o None si los números no son válidos
+    :return: Retorna el resultado en tipo flotante o de no tratarse de un número enonces retorna none
     """
-    first_number = None
-    second_number = None
 
-    # Validación del primer número
-    while first_number is None:
-        num_cadena = input("Ingresa el primer número: ")
-        first_number = cadena_a_flotante(num_cadena)
-        if first_number is None:
-            print("Entrada no válida. Intenta de nuevo.")
+    first_number = float(input("Ingresa primer número: "))
+    second_number = float(input("Ingresa segundo número: "))
 
-    # Validación del segundo número
-    while second_number is None:
-        num_cadena = input("Ingresa el segundo número: ")
-        second_number = cadena_a_flotante(num_cadena)
-        if second_number is None:
-            print("Entrada no válida. Intenta de nuevo.")
-
-    # Realiza la operación
     if option == 1:
-        return first_number + second_number
+        resultado = first_number + second_number
+        return resultado
     elif option == 2:
-        return first_number - second_number
+        resultado = first_number - second_number
+        return resultado
     else:
         return None
 
+
+
+
 if __name__ == '__main__':
     def main() -> None:
-        flag = False
-        while not flag:
+        print(__name__)
+
+        flag = 0
+        while flag == 0:
             menu()
-            opcion = None
-
-            # Validación de opción del menú
-            while opcion is None:
-                opcion_cadena = input("Ingrese una opción: ")
-                opcion = cadena_a_entero(opcion_cadena)
-                if opcion not in (1, 2, 3):
-                    print("Opción no válida. Intente de nuevo.")
-                    opcion = None
-
-            if opcion in (1, 2):
-                resultado = calcular(opcion)
+            option = int(input("Igrese una opción: "))
+            if option == 1 or option == 2:
+                resultado = calcular(option)
                 print(f"El resultado de la operación es: {resultado}")
-            elif opcion == 3:
+            elif option == 3:
                 print("Saliendo...")
-                flag = True
+                flag = 1
+            else:
+                print("Opción no válida. Intente de nuevo")
 
-    main()
+main()
