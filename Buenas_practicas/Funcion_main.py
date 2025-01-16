@@ -9,8 +9,13 @@ print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
 
-# Funciones de validación del Código 1
+# Funciones de validación
 def cadena_a_entero(cadena: str) -> int | None:
+    """
+    Función que valida la cadena que ingresa el usuario para que sea correctamente tomado como un entero
+    :param cadena: De tipo cadena
+    :return: Retorna un entero, o de no tratarse de un número, retorna None
+    """
     numero_guiones = cadena.count("-")
     revisar_cadena = cadena.lstrip("-")
     if revisar_cadena.isnumeric() and numero_guiones in (0, 1):
@@ -70,8 +75,8 @@ def calcular(option: int) -> float | None:
 
 if __name__ == '__main__':
     def main() -> None:
-        flag = False
-        while not flag:
+        flag = 0
+        while flag == 0:
             menu()
             opcion = None
 
@@ -88,6 +93,6 @@ if __name__ == '__main__':
                 print(f"El resultado de la operación es: {resultado}")
             elif opcion == 3:
                 print("Saliendo...")
-                flag = True
+                flag = 1
 
     main()
