@@ -1,7 +1,7 @@
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" * Durán Breceda Lourdes Jamileth                                   * ")
 print(" *                                                                  * ")
-print(" * Fecha:  13 de diciembre del 2025                                 * ")
+print(" * Fecha:  13 de enero del 2025                                 * ")
 print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
 print(" * Funcion main con validación de datos                            * ")
