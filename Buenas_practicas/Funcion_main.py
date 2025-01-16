@@ -24,6 +24,11 @@ def cadena_a_entero(cadena: str) -> int | None:
         return None
 
 def cadena_a_flotante(cadena: str) -> float | None:
+    """
+    Función que valida que los números que ingrso el usuario son de tipo flotante
+    :param cadena: Tipo de dato cadena
+    :return: Retorna el número flotante, o de no ser un número, retornará un None
+    """
     numero_puntos = cadena.count(".")
     revisar_cadena = cadena.replace(".", "").lstrip("-")
     if revisar_cadena.isnumeric() and numero_puntos in (0, 1):
@@ -31,7 +36,7 @@ def cadena_a_flotante(cadena: str) -> float | None:
     else:
         return None
 
-# Menú y cálculo
+# Menú
 def menu() -> None:
     """
     Función que muestra el menú
