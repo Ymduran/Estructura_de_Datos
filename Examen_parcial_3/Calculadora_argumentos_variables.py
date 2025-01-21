@@ -1,0 +1,11 @@
+print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+print(" * Durán Breceda Lourdes Jamileth                                   * ")
+print(" *                                                                  * ")
+print(" * Fecha: 21 de diciembre del 2025                                  * ")
+print(" *                                                                  * ")
+print(" * Descripción:                                                     * ")
+print(" * Calculadora con argumentos variables                             * ")
+print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
+print(" ")
+print(" ")
+
