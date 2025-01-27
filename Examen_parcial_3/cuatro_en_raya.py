@@ -11,6 +11,9 @@ print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 
 
+
+
+
 '''
 Las reglas del juego 4 en raya son las siguientes: 
 Dos jugadores compiten por alinear cuatro piezas de su color en una fila.
@@ -21,27 +24,38 @@ El jugador que primero alinee cuatro fichas gana.
 Si no hay un ganador, el juego termina en empate.
 '''
 
+
+
+
 def menu() -> None:
     """
-    Muestra el menú principal del juego de Cuatro en Raya.
+    Muestra el menú  del juego de Cuatro en Raya.
     """
-    print("** MENÚ PRINCIPAL **")
+    print("** MENÚ CUATRO EN RAYA**")
     print("1. Jugar contra otro jugador")
     print("2. Jugar contra la CPU")
     print("3. Salir")
 
 
+
+
+
+
 def mostrar_tablero(tablero: list) -> None:
     """
-    Muestra el tablero del juego.
+    Muestra el tablero del juego
 
     :param tablero: Lista como representación del tablero
     """
     print("\n")
     for fila in tablero:
-        print(" | ".join(fila))
+        print(" | ".join(fila)) #El join es para unir una lista con sublistas
         print("-" * 29)
     print("\n")
+
+
+
+
 
 def verificar_ganador(tablero: list, jugador: str) -> bool:
     """
@@ -49,56 +63,68 @@ def verificar_ganador(tablero: list, jugador: str) -> bool:
 
     :param tablero: Lista que representa el tablero
     :param jugador: Carácter de cada jugador, X u O
-    :return: True si el jugador ha ganado, False en caso contrario.
+    :return: True si jugador gana, o false si pierde
     """
     # Verificar filas
     for fila in tablero:
         for col in range(4):
-            if all(fila[col + i] == jugador for i in range(4)):
+            if all(fila[col + i] == jugador for i in range(4)): #Retorna verdadero si todos los elementos de la fila elinean cuatro elementos
                 return True
 
     # Verificar columnas
-    for col in range(7):
+    for columna in range(7):
         for fila in range(3):
-            if all(tablero[fila + i][col] == jugador for i in range(4)):
+            if all(tablero[fila + i][columna] == jugador for i in range(4)): #Retorna verdadero si todos los elementos en la columna alinean 4 elementos
                 return True
 
-    # Verificar diagonales (de izquierda a derecha)
+    # Verificar diagonales de izquierda a derecha
     for fila in range(3):
-        for col in range(4):
-            if all(tablero[fila + i][col + i] == jugador for i in range(4)):
+        for columna in range(4):
+            if all(tablero[fila + i][columna + i] == jugador for i in range(4)):
                 return True
 
     # Verificar diagonales (de derecha a izquierda)
     for fila in range(3):
-        for col in range(3, 7):
+        for columna in range(3, 7):
             if all(tablero[fila + i][col - i] == jugador for i in range(4)):
                 return True
 
     return False
 
+
+
+
+
 def columna_valida(tablero: list, columna: int) -> bool:
     """
-    Verifica si una columna es válida para realizar un movimiento.
+    Verifca si una columna es válida para realizar un movimiento
 
-    :param tablero: Lista bidimensional que representa el tablero.
-    :param columna: Número de columna (0 a 6).
-    :return: True si la columna es válida, False en caso contrario.
+    :param tablero: Lista para representar el tablero
+    :param columna: Número de columna (0 a 6)
+    :return: True si la columna es válida, False en caso contrario
     """
-    return 0 <= columna < 7 and tablero[0][columna] == " "
+    return 0 <= columna < 7 and tablero[0][columna] == " " #Retorna un valor en booleano, en este caso para verificar si la columna es válida pues debe cumplir con estos requisitos
 
-def realizar_movimiento(tablero: list, columna: int, jugador: str) -> None:
+
+
+
+def realizar_movimiento(tablero: list, columna: int, jugador: str) -> None: 
     """
-    Realiza un movimiento en la columna especificada para el jugador dado.
+    Realiza un movimiento en la columna especificada para el jugador dado
 
-    :param tablero: Lista bidimensional que representa el tablero.
-    :param columna: Número de columna (0 a 6).
+    :param tablero: Lista para representar el tablero
+    :param columna: Número de columna (0 a 6)
     :param jugador: Carácter que representa al jugador ('X' u 'O').
     """
     for fila in reversed(range(6)):
         if tablero[fila][columna] == " ":
             tablero[fila][columna] = jugador
             break
+
+
+
+
+
 
 def movimiento_cpu(tablero: list) -> int:
     """
@@ -130,14 +156,19 @@ def jugar_contra_jugador() -> None:
         mostrar_tablero(tablero)
 
         if verificar_ganador(tablero, turno):
-            print(f"\n¡{turno} ha ganado!")
+            print()
+            print(f" {turno} ha ganado!")
             break
 
         if all(tablero[0][col] != " " for col in range(7)):
-            print("\n¡Empate!")
+            print()
+            print("¡Empate!")
             break
 
-        turno = "O" if turno == "X" else "X"
+        turno = "O" if turno == "X" else "X" #Turno 
+
+
+
 
 def jugar_contra_cpu() -> None:
     """
@@ -147,6 +178,8 @@ def jugar_contra_cpu() -> None:
     mostrar_tablero(tablero)
     turno = "X"
 
+
+    
     while True:
         if turno == "X":
             print("Tu turno:")
@@ -175,11 +208,12 @@ def jugar_contra_cpu() -> None:
 
 
 
+
 def iniciar_menu() -> int:
     """
-    Inicia el menú y solicita una opción al usuario.
+    Inicia el menú para solicitar una opción al usuario
 
-    :return: Opción seleccionada por el usuario.
+    :return: Opción seleccionada por el usuario
     """
     opcion = input("Selecciona una opción: ")
     while opcion not in ["1", "2", "3"]:
