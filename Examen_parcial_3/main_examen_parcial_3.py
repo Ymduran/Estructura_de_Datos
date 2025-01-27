@@ -12,7 +12,7 @@ print(" *                                                                  * ")
 print(" * Fecha: 21 de diciembre del 2025                                  * ")
 print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
-print(" * Calculadora con argumentos variables                             * ")
+print(" * main; código principal del examen                                * ")
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" ")
 print(" ")
@@ -23,7 +23,7 @@ print(Fore.CYAN+  " |   D     )      ---------       /     ")
 print(Fore.YELLOW+" |       )                 /     /      ")
 print(Fore.BLUE+  " |     )                  /     /         ")
 print(Fore.GREEN+ " |  |                    /     / _")
-print(Fore.RED+   " |  |                   /           )    ")
+print(Fore.RED+   " |  |                   |           )    ")
 print(Fore.CYAN+  " |  |                    )            )           ")
 print(Fore.YELLOW+" ---                       )           )      ")
 print(Fore.BLUE+  "                           )           )   ")
@@ -35,26 +35,32 @@ print(Fore.CYAN+  "                   -----------------       ")
 
 
 
-def menu_principal() -> None:
+def menu_principal() -> int:
     """
     Función que muestra el menú principal para seleccionar cualquier programa
-    :return: None
+    :return: Entero válido para validar el dato
     """
+
     print(Fore.LIGHTYELLOW_EX+"** MENÚ PRINCIPAL ** ")
     print(Fore.GREEN+"1.- Calculadora Argumentos variables.")
     print(Fore.YELLOW+"2.- Calcular promedios parciales. ")
-    print(Fore.MAGENTA+"3.- Juego_del_gato.py. ")
+    print(Fore.MAGENTA+"3.- Juego_del_gato. ")
     print(Fore.BLUE+"4.- Juego de Cuatro en raya. ")
     print(Fore.CYAN+"5.- Juego del ahorcado.")
     print(Fore.RED+"6.- Salir. ")
     print(Fore.LIGHTBLUE_EX+" ")
+    opcion = input("Selecciona una opción: ")
+    while not opcion.isnumeric() or int(opcion) not in range(1, 7):
+        print("Opción no válida. Intenta de nuevo")
+        opcion = input("Selecciona una opción: ")
+    return int(opcion)
 
 
 if __name__ == '__main__':
     opcion = 0
     while True:
-        menu_principal()
-        opcion = int(input("Ingresa una opción: "))
+        opcion = menu_principal()
+
         if opcion == 1:
             Calculadora_argumentos_variables.ejecutar_calculadora()
         elif opcion == 2:

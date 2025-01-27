@@ -67,8 +67,8 @@ def verificar_ganador(tablero: list, jugador: str) -> bool:
     """
     # Verificar filas
     for fila in tablero:
-        for col in range(4):
-            if all(fila[col + i] == jugador for i in range(4)): #Retorna verdadero si todos los elementos de la fila elinean cuatro elementos
+        for columna in range(4):
+            if all(fila[columna + i] == jugador for i in range(4)): #Retorna verdadero si todos los elementos de la fila elinean cuatro elementos
                 return True
 
     # Verificar columnas
@@ -86,7 +86,7 @@ def verificar_ganador(tablero: list, jugador: str) -> bool:
     # Verificar diagonales (de derecha a izquierda)
     for fila in range(3):
         for columna in range(3, 7):
-            if all(tablero[fila + i][col - i] == jugador for i in range(4)):
+            if all(tablero[fila + i][columna - i] == jugador for i in range(4)):
                 return True
 
     return False
@@ -148,7 +148,7 @@ def jugar_contra_jugador() -> None:
     """
     tablero = [[" " for _ in range(7)] for _ in range(6)]
     mostrar_tablero(tablero)
-    turno = "X"
+    turno = "🐢"
 
 
     while True:
@@ -172,7 +172,7 @@ def jugar_contra_jugador() -> None:
             print("¡Empate!")
             break
 
-        turno = "O" if turno == "X" else "X" #Turno 
+        turno = "🐘" if turno == "🐢" else "🐢" #Turno
 
 
 
@@ -184,13 +184,13 @@ def jugar_contra_cpu() -> None:
     """
     tablero = [[" " for _ in range(7)] for _ in range(6)]
     mostrar_tablero(tablero)
-    turno = "X"
+    turno = "🐸"
 
 
 
     flag = 0
     while True:
-        if turno == "X":
+        if turno == "🐸":
             print("Tu turno:")
             columna = int(input("Selecciona una columna (0 a 6): "))
 
@@ -214,7 +214,7 @@ def jugar_contra_cpu() -> None:
             print("¡Empate!")
             break
 
-        turno = "O" if turno == "X" else "X"
+        turno = "🐹" if turno == "🐸" else "🐸"
         
 
 
@@ -246,5 +246,7 @@ def ejecutar_cuatro_en_raya() -> None:
         elif opcion == 3:
             print("Saliendo...")
             break
+
+
 if __name__ == '__main__':
     ejecutar_cuatro_en_raya()

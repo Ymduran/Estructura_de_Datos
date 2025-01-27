@@ -15,7 +15,7 @@ def mostrar_tablero(tablero: list) -> None:
 
     :param tablero: Lista como representacion del tablero
     """
-    print()
+    print("\n")
     for fila in tablero:
         print(" | ".join(fila)) #El .join es un método de cadena,  para formar una cadena a partir de subcadenas, en esta línea se ocupa para separar el | e intercalarlo
         print("-" * 8)
@@ -117,7 +117,9 @@ def jugar_contra_jugador() -> None:
     mostrar_tablero(tablero)
     turno = "X"
     
-    
+
+
+    flag = 0
     while True:
         print(f"Turno de {turno}")
         movimiento_jugador(tablero, turno)
@@ -129,6 +131,9 @@ def jugar_contra_jugador() -> None:
             print("\n¡Empate!")
             break
         turno = "O" if turno == "X" else "X"
+
+
+
 
 
 def jugar_contra_cpu() -> None:
@@ -155,6 +160,11 @@ def jugar_contra_cpu() -> None:
         turno = "O" if turno == "X" else "X"
 
 
+
+
+
+
+
 def menu() -> None:
     """
     Muestra el menú principal del juego del gato.
@@ -163,6 +173,8 @@ def menu() -> None:
     print("1. Jugar contra otro jugador")
     print("2. Jugar contra la CPU")
     print("3. Salir")
+
+
 
 
 def iniciar_menu() -> int:
@@ -176,6 +188,10 @@ def iniciar_menu() -> int:
         print("Opción inválida. Por favor, selecciona 1, 2 o 3.")
         opcion = input("Selecciona una opción: ")
     return int(opcion)
+
+
+
+
 
 def ejecutar_juego_del_gato() -> None:
     flag = 0

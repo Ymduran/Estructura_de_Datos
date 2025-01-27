@@ -72,6 +72,9 @@ def ejecutar_promedio_materias() -> None:
     else:
         print("No se registraron materias :(")
 
+
+
+
 if __name__ == '__main__':
 
     ejecutar_promedio_materias()
