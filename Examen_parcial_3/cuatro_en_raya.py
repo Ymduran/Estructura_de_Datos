@@ -103,7 +103,7 @@ def columna_valida(tablero: list, columna: int) -> bool:
     :param columna: Número de columna (0 a 6)
     :return: True si la columna es válida, False en caso contrario
     """
-    return 0 <= columna < 7 and tablero[0][columna] == " " #Retorna un valor en booleano, en este caso para verificar si la columna es válida pues debe cumplir con estos requisitos
+    return 0 <= columna < 7 and tablero[0][columna] == " " #Retorna un valor en booleano, en este caso para verificar si la columna es válida pues debe cumplir que esté dentro del rango.
 
 
 
@@ -128,13 +128,19 @@ def realizar_movimiento(tablero: list, columna: int, jugador: str) -> None:
 
 def movimiento_cpu(tablero: list) -> int:
     """
-    Realiza un movimiento aleatorio para la CPU.
+    Realiza un movimiento aleatorio para la CPU en aleatorio
 
     :param tablero: Lista bidimensional que representa el tablero.
     :return: Columna donde la CPU realizó el movimiento
     """
-    columnas_validas = [col for col in range(7) if columna_valida(tablero, col)]
+    columnas_validas = [columna for columna in range(7) if columna_valida(tablero, columna)]
     return random.choice(columnas_validas)
+
+
+
+
+
+
 
 def jugar_contra_jugador() -> None:
     """
@@ -143,6 +149,7 @@ def jugar_contra_jugador() -> None:
     tablero = [[" " for _ in range(7)] for _ in range(6)]
     mostrar_tablero(tablero)
     turno = "X"
+
 
     while True:
         print(f"Turno de {turno}")
@@ -170,6 +177,7 @@ def jugar_contra_jugador() -> None:
 
 
 
+
 def jugar_contra_cpu() -> None:
     """
     Inicia una partida de Cuatro en Raya contra la CPU.
@@ -179,7 +187,8 @@ def jugar_contra_cpu() -> None:
     turno = "X"
 
 
-    
+
+    flag = 0
     while True:
         if turno == "X":
             print("Tu turno:")
@@ -196,11 +205,13 @@ def jugar_contra_cpu() -> None:
         mostrar_tablero(tablero)
 
         if verificar_ganador(tablero, turno):
-            print(f"\n¡{turno} ha ganado!")
+            print(f"{turno} ha ganado!")
+            flag = 1
             break
 
+
         if all(tablero[0][col] != " " for col in range(7)):
-            print("\n¡Empate!")
+            print("¡Empate!")
             break
 
         turno = "O" if turno == "X" else "X"
@@ -221,6 +232,9 @@ def iniciar_menu() -> int:
         opcion = input("Selecciona una opción: ")
     return int(opcion)
 
+
+
+
 def ejecutar_cuatro_en_raya() -> None:
     while True:
         menu()
@@ -233,5 +247,4 @@ def ejecutar_cuatro_en_raya() -> None:
             print("Saliendo...")
             break
 if __name__ == '__main__':
-
     ejecutar_cuatro_en_raya()

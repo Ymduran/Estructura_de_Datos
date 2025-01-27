@@ -15,11 +15,12 @@ def mostrar_tablero(tablero: list) -> None:
 
     :param tablero: Lista como representacion del tablero
     """
-    print("\n")
+    print()
     for fila in tablero:
         print(" | ".join(fila)) #El .join es un método de cadena,  para formar una cadena a partir de subcadenas, en esta línea se ocupa para separar el | e intercalarlo
         print("-" * 8)
-    print("\n")
+
+
 
 
 def verificar_ganador(tablero: list, jugador: str) -> bool:
@@ -34,9 +35,10 @@ def verificar_ganador(tablero: list, jugador: str) -> bool:
     for fila in tablero: #Verificando en todas las filas
         if all(casilla == jugador for casilla in fila): # all: devuelve True si todos los elementos de un iterable son verdaderos; de lo contrario, devuelve False
             return True
-            
-    for col in range(3): #Verificando en todas las columnas
-        if all(tablero[fila][col] == jugador for fila in range(3)):
+
+
+    for columna in range(3): #Verificando en todas las columnas
+        if all(tablero[fila][columna] == jugador for fila in range(3)):
             return True
             
             
@@ -66,8 +68,8 @@ def movimiento_jugador(tablero: list, jugador: str) -> None:
     
     fila = validar_entrada("fila")
     columna = validar_entrada("columna")
-    while tablero[fila][columna] != " ":
-        print("Esa casilla ya está ocupada. Intenta de nuevo.")
+    while tablero[fila][columna] != " ": #Mientras la "matriz" no sea un espacio vacio
+        print("Esa casilla ya está ocupada. Intenta de nuevo:")
         fila = validar_entrada("fila")
         columna = validar_entrada("columna")
     tablero[fila][columna] = jugador
@@ -145,10 +147,10 @@ def jugar_contra_cpu() -> None:
             movimiento_cpu(tablero)
         mostrar_tablero(tablero)
         if verificar_ganador(tablero, turno):
-            print(f"\n¡{turno} ha ganado!")
+            print(f"{turno} ha ganado")
             break
         if tablero_lleno(tablero):
-            print("\n¡Empate!")
+            print("Empate")
             break
         turno = "O" if turno == "X" else "X"
 
@@ -175,8 +177,8 @@ def iniciar_menu() -> int:
         opcion = input("Selecciona una opción: ")
     return int(opcion)
 
-
 def ejecutar_juego_del_gato() -> None:
+    flag = 0
     while True:
         menu()
         opcion = iniciar_menu()
@@ -187,6 +189,7 @@ def ejecutar_juego_del_gato() -> None:
         elif opcion == 3:
             print("Saliendo...")
             break
-if __name__ == '__main__':
 
+
+if __name__ == '__main__':
     ejecutar_juego_del_gato()

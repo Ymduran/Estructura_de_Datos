@@ -78,7 +78,7 @@ def ejecutar_juego_ahorcado() -> None:
     print("  ☺")
     print(" /|\🍟")
     print(" / \ ")
-    print("\n")
+    print("")
     print("Adivina la palabra:")
     print(" ".join(progreso))
 
