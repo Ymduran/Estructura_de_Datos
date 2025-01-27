@@ -176,7 +176,7 @@ def iniciar_menu() -> int:
     return int(opcion)
 
 
-if __name__ == "__main__":
+def ejecutar_juego_del_gato() -> None:
     while True:
         menu()
         opcion = iniciar_menu()
@@ -187,4 +187,6 @@ if __name__ == "__main__":
         elif opcion == 3:
             print("Saliendo...")
             break
+if __name__ == '__main__':
 
+    ejecutar_juego_del_gato()

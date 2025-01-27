@@ -221,7 +221,7 @@ def iniciar_menu() -> int:
         opcion = input("Selecciona una opción: ")
     return int(opcion)
 
-if __name__ == "__main__":
+def ejecutar_cuatro_en_raya() -> None:
     while True:
         menu()
         opcion = iniciar_menu()
@@ -232,3 +232,6 @@ if __name__ == "__main__":
         elif opcion == 3:
             print("Saliendo...")
             break
+if __name__ == '__main__':
+
+    ejecutar_cuatro_en_raya()

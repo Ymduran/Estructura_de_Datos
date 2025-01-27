@@ -65,45 +65,52 @@ def actualizar_progreso(palabra_adivinar, progreso, letra_usuario):
             progreso[indice] = letra
     return progreso
 
-# Lista de palabras
-lista_palabras_adivinar = ["variable", "algoritmo", "prototipo"]
 
-# Inicialización del juego
-palabra_adivinar, progreso = inicializar_juego(lista_palabras_adivinar)
 
-# Mostrar la pista inicial con la primera letra visible
-print("  ☺")
-print(" /|\🍟")
-print(" / \ ")
-print("\n")
-print("Adivina la palabra:")
-print(" ".join(progreso))
+def ejecutar_juego_ahorcado() -> None:
+    # Lista de palabras
+    lista_palabras_adivinar = ["variable", "algoritmo", "prototipo"]
 
-# Intentos restantes
-intento = 0
-max_intentos = 6
+    # Inicialización del juego
+    palabra_adivinar, progreso = inicializar_juego(lista_palabras_adivinar)
 
-# Bucle principal del juego
-while intento < max_intentos:
-    letra_usuario = input("\nIngresa una letra: ").lower()
-
-    if letra_usuario in palabra_adivinar:
-        # Actualizar el progreso si la letra está en la palabra
-        progreso = actualizar_progreso(palabra_adivinar, progreso, letra_usuario)
-        print("Letra correcta :)")
-    else:
-        # Incrementar los intentos fallidos y mostrar el ahorcado
-        intento += 1
-        print("Letra incorrecta.")
-        mostrar_ahorcado(intento)
-        if intento == max_intentos:
-            print(f"La palabra era: {palabra_adivinar}")
-            break
-
-    # Mostrar el progreso actualizado
+    # Mostrar la pista inicial con la primera letra visible
+    print("  ☺")
+    print(" /|\🍟")
+    print(" / \ ")
+    print("\n")
+    print("Adivina la palabra:")
     print(" ".join(progreso))
 
-    # Comprobar si se ha adivinado toda la palabra
-    if "_" not in progreso:
-        print("\n¡Felicidades. Has adivinado la palabra!")
-        break
+    # Intentos restantes
+    intento = 0
+    max_intentos = 6
+
+    # Bucle principal del juego
+    while intento < max_intentos:
+        letra_usuario = input("\nIngresa una letra: ").lower()
+
+        if letra_usuario in palabra_adivinar:
+            # Actualizar el progreso si la letra está en la palabra
+            progreso = actualizar_progreso(palabra_adivinar, progreso, letra_usuario)
+            print("Letra correcta :)")
+        else:
+            # Incrementar los intentos fallidos y mostrar el ahorcado
+            intento += 1
+            print("Letra incorrecta.")
+            mostrar_ahorcado(intento)
+            if intento == max_intentos:
+                print(f"La palabra era: {palabra_adivinar}")
+                break
+
+        # Mostrar el progreso actualizado
+        print(" ".join(progreso))
+
+        # Comprobar si se ha adivinado toda la palabra
+        if "_" not in progreso:
+            print("\n¡Felicidades. Has adivinado la palabra!")
+            break
+
+if __name__ == '__main__':
+
+    ejecutar_juego_ahorcado()

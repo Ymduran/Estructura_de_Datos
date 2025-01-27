@@ -41,7 +41,7 @@ def registrar_materias(**kwargs):
     print(f"\nEl promedio general es: {promedio_general:.2f}")
 
 
-if __name__ == '__main__':
+def ejecutar_promedio_materias() -> None:
     materias = {} 
     flag = 0
     
@@ -71,3 +71,7 @@ if __name__ == '__main__':
         registrar_materias(**materias)
     else:
         print("No se registraron materias :(")
+
+if __name__ == '__main__':
+
+    ejecutar_promedio_materias()

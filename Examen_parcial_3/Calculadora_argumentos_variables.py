@@ -87,7 +87,7 @@ def multiplicar(*vargs: int) -> int:
     
     
 
-if __name__ == '__main__':
+def ejecutar_calculadora() -> None:
     Flag = 0
     while Flag == 0:
         opcion = menu()
@@ -118,3 +118,7 @@ if __name__ == '__main__':
             Flag = 1
 
         print("")
+
+if __name__ == '__main__':
+
+    ejecutar_calculadora()
