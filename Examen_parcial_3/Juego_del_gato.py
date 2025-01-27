@@ -61,7 +61,7 @@ def movimiento_jugador(tablero: list, jugador: str) -> None:
     """
     Registra el movimiento de un jugador en el tablero.
 
-    :param tablero: Lista bidimensional que representa el tablero.
+    :param tablero: Listaque representa el tablero.
     :param jugador: Carácter que representa al jugador ('X' u 'O').
     """
     
