@@ -106,7 +106,7 @@ def movimiento_cpu(tablero: list) -> None:
     
     while tablero[fila][columna] != " ":
         fila, columna = random.randint(0, 2), random.randint(0, 2)
-    tablero[fila][columna] = "O"
+    tablero[fila][columna] = "🐷"
 
 
 def jugar_contra_jugador() -> None:
@@ -115,7 +115,7 @@ def jugar_contra_jugador() -> None:
     """
     tablero = [[" " for _ in range(3)] for _ in range(3)]
     mostrar_tablero(tablero)
-    turno = "X"
+    turno = "🐸"
     
 
 
@@ -130,7 +130,7 @@ def jugar_contra_jugador() -> None:
         if tablero_lleno(tablero):
             print("\n¡Empate!")
             break
-        turno = "O" if turno == "X" else "X"
+        turno = "🐷" if turno == "🐸" else "🐸"
 
 
 
@@ -142,9 +142,9 @@ def jugar_contra_cpu() -> None:
     """
     tablero = [[" " for _ in range(3)] for _ in range(3)]
     mostrar_tablero(tablero)
-    turno = "X"
+    turno = "🐸"
     while True:
-        if turno == "X":
+        if turno == "🐸":
             print("Tu turno:")
             movimiento_jugador(tablero, turno)
         else:
@@ -157,7 +157,7 @@ def jugar_contra_cpu() -> None:
         if tablero_lleno(tablero):
             print("Empate")
             break
-        turno = "O" if turno == "X" else "X"
+        turno = "🐷" if turno == "🐸" else "🐸"
 
 
 
