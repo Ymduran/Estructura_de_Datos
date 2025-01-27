@@ -90,7 +90,7 @@ while intento < max_intentos:
     if letra_usuario in palabra_adivinar:
         # Actualizar el progreso si la letra está en la palabra
         progreso = actualizar_progreso(palabra_adivinar, progreso, letra_usuario)
-        print("¡Correcto!")
+        print("Letra correcta :)")
     else:
         # Incrementar los intentos fallidos y mostrar el ahorcado
         intento += 1
