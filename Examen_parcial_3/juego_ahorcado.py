@@ -86,9 +86,12 @@ def ejecutar_juego_ahorcado() -> None:
     intento = 0
     max_intentos = 6
 
+
+
     # Bucle principal del juego
     while intento < max_intentos:
         letra_usuario = input("\nIngresa una letra: ").lower()
+
 
         if letra_usuario in palabra_adivinar:
             # Actualizar el progreso si la letra está en la palabra
@@ -103,12 +106,14 @@ def ejecutar_juego_ahorcado() -> None:
                 print(f"La palabra era: {palabra_adivinar}")
                 break
 
+
+
         # Mostrar el progreso actualizado
         print(" ".join(progreso))
 
-        # Comprobar si se ha adivinado toda la palabra
-        if "_" not in progreso:
-            print("\n¡Felicidades. Has adivinado la palabra!")
+        # Comprobar si ha adivinado toda la palabra
+        if "_" not in progreso: #Cuando ya no hay guiones
+            print("¡Felicidades Has adivinado la palabra!")
             break
 
 if __name__ == '__main__':
