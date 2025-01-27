@@ -9,7 +9,7 @@ import juego_ahorcado
 print(" * * * * * * * * * * * * * * * * * * * * * * * * * * *  * * * * * * * ")
 print(" * Durán Breceda Lourdes Jamileth                                   * ")
 print(" *                                                                  * ")
-print(" * Fecha: 21 de diciembre del 2025                                  * ")
+print(" * Fecha: 27 de diciembre del 2025                                  * ")
 print(" *                                                                  * ")
 print(" * Descripción:                                                     * ")
 print(" * main; código principal del examen                                * ")
@@ -54,6 +54,9 @@ def menu_principal() -> int:
         print("Opción no válida. Intenta de nuevo")
         opcion = input("Selecciona una opción: ")
     return int(opcion)
+
+
+
 
 
 if __name__ == '__main__':
