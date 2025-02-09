@@ -23,18 +23,34 @@ def inicializar_carrera() -> dict[str, int]:
     """
     return {'oros': 0, 'copas': 0, 'espadas': 0, 'bastos': 0}
 
-def mostrar_pista(caballos: dict[str, int]) -> None:
-    """
-    Muestra la pista de la carrera.
-    :param caballos: Diccionario con los caballos y su posición actual.
-    """
+def mostrar_pista(caballos):
+    """Muestra la pista de la carrera."""
     print("\nPista de carrera:")
     print("--------------------------------|")
-    for palo, posicion in caballos.items():
-        pista = "  —" * posicion + "🐴 >" if posicion > 0 else "🐴 >"
-        figura = {'oros': '🟡', 'copas': '🍷', 'espadas': '⚔️', 'bastos': '🌿'}[palo]
-        print(f"{palo} {figura} {pista}")
-        print("****************************🏁   |")
+    for palo in caballos:
+        posicion = caballos[palo]
+        pista = ""
+        contador = 0
+
+        while contador < posicion:
+            pista = pista + "  —"
+            contador = contador + 1
+        
+        if posicion == 0:
+            pista = "🐴 >"
+        else:
+            pista = pista + "🐴 >"
+        if palo == "oros":
+            figura = "🟡   "
+        elif palo == "copas":
+            figura = "🍷  "
+        elif palo == "espadas":
+            figura = "⚔️"
+        elif palo == "bastos":
+            figura = "🌿 "
+        
+        print(palo + figura + " " + pista)
+        print("****************************🏁   " + "|")
     print("--------------------------------|")
 
 def retroceso(caballos: dict[str, int], cartas_fuera: list[str]) -> None:
