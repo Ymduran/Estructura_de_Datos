@@ -1,48 +1,40 @@
 import random
 
-# Representación de las cartas con emoticones
-PALOS = {"oros": "🟡", "copas": "🏆", "espadas": "⚔️", "bastos": "🪵"}
+def crear_baraja():
+    palos = ["🟡", "⚔️", "🏆", "🌿"]
+    numeros = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+    return [f"{numero}{palo}" for palo in palos for numero in numeros]
 
-# Configuración de la carrera
-PISTA_LONGITUD = 10  # Longitud de la pista
-CABALLOS = {palo: 0 for palo in PALOS}  # Posiciones iniciales
+def barajar_baraja(baraja):
+    random.shuffle(baraja)
 
-# Baraja de cartas
-BARAJA = [palo for palo in PALOS for _ in range(10)]
-random.shuffle(BARAJA)
+def inicializar_carrera():
+    return {"🟡": 0, "⚔️": 0, "🏆": 0, "🌿": 0}
 
-# Función para mostrar la pista
+def mostrar_pista(caballos):
+    pista = "META | " + " - ".join([f"{palo}:{'🏇' * pos}" for palo, pos in caballos.items()])
+    print(pista)
 
-def mostrar_pista():
-    print("\nPista de la carrera:")
-    print("META  |" + "—" * (PISTA_LONGITUD * 2) + "| META")
-    for palo, posicion in CABALLOS.items():
-        print(f"{PALOS[palo]}: " + "  " * posicion + "🐴")
-    print("Cartas de la pista: ", " | ".join(PALOS[palo] for palo in BARJA[:PISTA_LONGITUD]))
+def avanzar_caballo(caballos, carta):
+    palo = carta[-1]
+    if palo in caballos:
+        caballos[palo] += 1
 
-# Función principal de la carrera
 def carrera():
-    while max(CABALLOS.values()) < PISTA_LONGITUD:
-        input("Presiona Enter para voltear una carta...")
-        carta = BARAJA.pop()
-        print(f"Salió la carta: {PALOS[carta]}")
-        
-        # Retrocede el caballo si corresponde
-        if CABALLOS[carta] > 0:
-            CABALLOS[carta] -= 1
-        
-        # Mostrar la pista actualizada
-        mostrar_pista()
-        
-        # Verificar si todos cruzaron una carta y mostrar retroceso
-        if all(pos >= PISTA_LONGITUD // 2 for pos in CABALLOS.values()):
-            carta_retroceso = random.choice(list(PALOS.keys()))
-            print(f"Todos han cruzado la mitad, se voltea {PALOS[carta_retroceso]} para retroceso!")
-            if CABALLOS[carta_retroceso] > 0:
-                CABALLOS[carta_retroceso] -= 1
-            mostrar_pista()
+    baraja = crear_baraja()
+    barajar_baraja(baraja)
+    caballos = inicializar_carrera()
+    meta = 10
+    
+    while all(pos < meta for pos in caballos.values()):
+        carta = baraja.pop()
+        avanzar_caballo(caballos, carta)
+        mostrar_pista(caballos)
+        input("Presiona Enter para continuar...")
+    
+    print("¡Carrera terminada!")
+    ganador = max(caballos, key=caballos.get)
+    print(f"El caballo {ganador} ha ganado la carrera.")
 
-    print("¡La carrera ha terminado!")
-
-# Iniciar la carrera
-carrera()
+if __name__ == "__main__":
+    carrera()
