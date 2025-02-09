@@ -1,40 +1,68 @@
 import random
 
-def crear_baraja():
-    palos = ["🟡", "⚔️", "🏆", "🌿"]
-    numeros = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-    return [f"{numero}{palo}" for palo in palos for numero in numeros]
 
-def barajar_baraja(baraja):
+def crear_baraja():
+    """Crea una baraja española sin ochos ni nueves."""
+    palos = {'oros': '🟡', 'copas': '🍷', 'espadas': '⚔️', 'bastos': '🌿'}
+    valores = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12]
+    return [(valor, palo, f"{valor}{simbolo}") for palo, simbolo in palos.items() for valor in valores]
+
+
+def barajar(baraja):
+    """Baraja las cartas."""
     random.shuffle(baraja)
 
+
 def inicializar_carrera():
-    return {"🟡": 0, "⚔️": 0, "🏆": 0, "🌿": 0}
+    """Inicializa los caballos en la posición de salida."""
+    return {'oros': 0, 'copas': 0, 'espadas': 0, 'bastos': 0}
+
 
 def mostrar_pista(caballos):
-    pista = "META | " + " - ".join([f"{palo}:{'🏇' * pos}" for palo, pos in caballos.items()])
-    print(pista)
+    """Muestra la pista de la carrera."""
+    print("\nPista de carrera:")
+    for palo, posicion in caballos.items():
+        print(f"{palo.capitalize()} ({'🐴' + '—' * posicion}🏁)")
 
-def avanzar_caballo(caballos, carta):
-    palo = carta[-1]
-    if palo in caballos:
-        caballos[palo] += 1
 
-def carrera():
+def jugar_carrera():
+    """Ejecuta la carrera de caballos con apuestas."""
     baraja = crear_baraja()
-    barajar_baraja(baraja)
+    barajar(baraja)
     caballos = inicializar_carrera()
-    meta = 10
-    
-    while all(pos < meta for pos in caballos.values()):
+    cartas_fuera = []
+
+    print("Bienvenido a la carrera de caballos con naipes!\n")
+    eleccion = input("Apuesta por un caballo (oros, copas, espadas, bastos): ").strip().lower()
+    while eleccion not in caballos:
+        eleccion = input("Opción inválida. Ingresa un palo válido (oros, copas, espadas, bastos): ").strip().lower()
+
+    input("Presiona ENTER para iniciar la carrera...")
+
+    meta = 10  # Definir la meta para los caballos
+    ganador = None
+
+    while not ganador:
         carta = baraja.pop()
-        avanzar_caballo(caballos, carta)
+        cartas_fuera.append(carta[2])
+        if carta[1] in caballos:
+            caballos[carta[1]] += 1
+            print(f"Salió la carta {carta[2]} -> {carta[1].capitalize()} avanza!")
         mostrar_pista(caballos)
-        input("Presiona Enter para continuar...")
-    
-    print("¡Carrera terminada!")
-    ganador = max(caballos, key=caballos.get)
-    print(f"El caballo {ganador} ha ganado la carrera.")
+
+        if caballos[carta[1]] >= meta:
+            ganador = carta[1]
+
+        input("Presiona ENTER para continuar...")
+
+    print(f"\nEl caballo {ganador.capitalize()} ha ganado la carrera! 🏆")
+    print("Cartas jugadas en la carrera:", ' '.join(cartas_fuera))
+
+    if ganador == eleccion:
+        print("¡Felicidades! Tu caballo ganó la apuesta!")
+    else:
+        print("Lo siento, tu caballo no ganó esta vez.")
+
 
 if __name__ == "__main__":
-    carrera()
+    jugar_carrera()
