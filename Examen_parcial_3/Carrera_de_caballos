@@ -1,62 +1,48 @@
 import random
 
-def crear_baraja():
-    """Crea una baraja española sin ochos ni nueves."""
-    palos = {'oros': '🟡', 'copas': '🍷', 'espadas': '⚔️', 'bastos': '🌿'}
-    valores = [1, 2, 3, 4, 5, 6, 7, 10, 11, 12]
-    return [(valor, palo, f"{valor}{simbolo}") for palo, simbolo in palos.items() for valor in valores]
+# Representación de las cartas con emoticones
+PALOS = {"oros": "🟡", "copas": "🏆", "espadas": "⚔️", "bastos": "🪵"}
 
-def barajar(baraja):
-    """Baraja las cartas."""
-    random.shuffle(baraja)
+# Configuración de la carrera
+PISTA_LONGITUD = 10  # Longitud de la pista
+CABALLOS = {palo: 0 for palo in PALOS}  # Posiciones iniciales
 
-def inicializar_carrera():
-    """Inicializa los caballos en la posición de salida."""
-    return {'oros': 0, 'copas': 0, 'espadas': 0, 'bastos': 0}
+# Baraja de cartas
+BARAJA = [palo for palo in PALOS for _ in range(10)]
+random.shuffle(BARAJA)
 
-def mostrar_pista(caballos):
-    """Muestra la pista de la carrera."""
-    print("\nPista de carrera:")
-    for palo, posicion in caballos.items():
-        print(f"{palo.capitalize()} ({'🐴' + '—' * posicion}🏁)")
+# Función para mostrar la pista
 
-def jugar_carrera():
-    """Ejecuta la carrera de caballos con apuestas."""
-    baraja = crear_baraja()
-    barajar(baraja)
-    caballos = inicializar_carrera()
-    cartas_fuera = []
-    
-    print("Bienvenido a la carrera de caballos con naipes!\n")
-    eleccion = input("Apuesta por un caballo (oros, copas, espadas, bastos): ").strip().lower()
-    while eleccion not in caballos:
-        eleccion = input("Opción inválida. Ingresa un palo válido (oros, copas, espadas, bastos): ").strip().lower()
-    
-    input("Presiona ENTER para iniciar la carrera...")
-    
-    meta = 10  # Definir la meta para los caballos
-    ganador = None
-    
-    while not ganador:
-        carta = baraja.pop()
-        cartas_fuera.append(carta[2])
-        if carta[1] in caballos:
-            caballos[carta[1]] += 1
-            print(f"Salió la carta {carta[2]} -> {carta[1].capitalize()} avanza!")
-        mostrar_pista(caballos)
+def mostrar_pista():
+    print("\nPista de la carrera:")
+    print("META  |" + "—" * (PISTA_LONGITUD * 2) + "| META")
+    for palo, posicion in CABALLOS.items():
+        print(f"{PALOS[palo]}: " + "  " * posicion + "🐴")
+    print("Cartas de la pista: ", " | ".join(PALOS[palo] for palo in BARJA[:PISTA_LONGITUD]))
+
+# Función principal de la carrera
+def carrera():
+    while max(CABALLOS.values()) < PISTA_LONGITUD:
+        input("Presiona Enter para voltear una carta...")
+        carta = BARAJA.pop()
+        print(f"Salió la carta: {PALOS[carta]}")
         
-        if caballos[carta[1]] >= meta:
-            ganador = carta[1]
+        # Retrocede el caballo si corresponde
+        if CABALLOS[carta] > 0:
+            CABALLOS[carta] -= 1
         
-        input("Presiona ENTER para continuar...")
-    
-    print(f"\nEl caballo {ganador.capitalize()} ha ganado la carrera! 🏆")
-    print("Cartas jugadas en la carrera:", ' '.join(cartas_fuera))
-    
-    if ganador == eleccion:
-        print("¡Felicidades! Tu caballo ganó la apuesta!")
-    else:
-        print("Lo siento, tu caballo no ganó esta vez.")
+        # Mostrar la pista actualizada
+        mostrar_pista()
+        
+        # Verificar si todos cruzaron una carta y mostrar retroceso
+        if all(pos >= PISTA_LONGITUD // 2 for pos in CABALLOS.values()):
+            carta_retroceso = random.choice(list(PALOS.keys()))
+            print(f"Todos han cruzado la mitad, se voltea {PALOS[carta_retroceso]} para retroceso!")
+            if CABALLOS[carta_retroceso] > 0:
+                CABALLOS[carta_retroceso] -= 1
+            mostrar_pista()
 
-if __name__ == "__main__":
-    jugar_carrera()
+    print("¡La carrera ha terminado!")
+
+# Iniciar la carrera
+carrera()
