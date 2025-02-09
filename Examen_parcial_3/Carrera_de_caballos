@@ -110,7 +110,7 @@ def jugar_carrera() -> None:
         input("Presiona [ENTER] para continuar")
 
     print(f"\nEl caballo {ganador} ha ganado la carrera! 🏆")
-    print("Cartas jugadas en la carrera:", ' '.join(cartas_fuera))
+    print("Cartas jugadas en la carrera:"| ' '.join(cartas_fuera))
 
     if ganador == eleccion:
         print("¡Felicidades! Tu caballo ganó la apuesta! :)")
